@@ -59,6 +59,17 @@ const colorHandler = (colorset) => {
           background-color: #ff6b00;
         }
       `;
+      case '로그인':
+        return css`
+        color: white;
+        background-color: #051619;
+        width: 100%;
+        height: 48.85px;
+        &:hover {
+          color: #051619;
+          background-color: white;
+        }
+      `;
     default:
       return css``;
   }
