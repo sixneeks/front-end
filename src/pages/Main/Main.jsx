@@ -20,6 +20,13 @@ function Main() {
       <Header />
       <Header2 />
       <Category />
+      <Button />
+      <Card />
+      <CheckBox />
+      <Input />
+      <Guide />
+      <ScrollGauge />
+      <Footer />
      
 
       {/* <Button name={"뉴스레터 무료로 구독하기"} colorSet={'뉴스레터 무료로 구독하기'}/>
