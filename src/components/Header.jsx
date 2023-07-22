@@ -20,6 +20,8 @@ const HeaderWrapper = styled.header`
   .header-in {
     display: flex;
     align-items: center;
+    padding-left: 80%;
+   
   }
 
   /* 로고 이미지를 가운데 정렬하도록 스타일 설정 */
@@ -35,9 +37,15 @@ const HeaderWrapper = styled.header`
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-
-
   }
+  //-- 박스 위치 수정! 
+  .boxs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* flex: 1; 화면 크기가 작아지면 로고와의 간격이 자동으로 조정됩니다. */
+  }
+
   .box {
     width: 40px;
     height: 40px;
@@ -63,9 +71,11 @@ const Header = () => {
       <div className="header-out">
         <div className="header-in">
           <img src={logo} alt="헤더 이미지" />
+          <div className="boxs">
+          <div className="box">☺️</div>
+          <div className="box">💖</div>
           </div>
-          <div className="box"></div>
-        <div className="box"></div>
+        </div>
       </div>
     </HeaderWrapper>
   );

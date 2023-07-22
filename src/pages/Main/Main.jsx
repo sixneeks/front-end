@@ -18,6 +18,10 @@ function Main() {
     <div>
       <Banner />
       <Header />
+      <Header2 />
+      <Category />
+     
+
       {/* <Button name={"뉴스레터 무료로 구독하기"} colorSet={'뉴스레터 무료로 구독하기'}/>
       <Button name={"앱 다운로드 하기 >"} colorSet={'앱 다운로드 하기 >'}/>
       <Button name={"더보기"} colorSet={'더보기'} onClick={resetTitle}/>
