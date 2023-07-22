@@ -9,6 +9,7 @@ import Header from "../../components/Header";
 import Header2 from "../../components/Header2";
 import Input from "../../components/Input";
 import ScrollGauge from "../../components/ScrollGauge";
+import React from "react";
 
 function Main() {
   // const [title, onChangeTitleHandler, resetTitle] = useInput();
