@@ -5,6 +5,7 @@ import Detail from '../pages/Detail/Detail'
 import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
 import Tag from "../pages/Tag/Tag";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient();
 
