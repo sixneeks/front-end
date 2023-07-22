@@ -59,6 +59,9 @@ const GaugeFill = styled.div`
   width: ${props => props.scrollPercentage}%;
 `;
 
+const Stdiv = styled.div`
+`
+
 const ScrollGauge = () => {
   const [scrollPercentage, setScrollPercentage] = useState(0);
 
@@ -79,6 +82,7 @@ const ScrollGauge = () => {
   return (
     <GaugeWrapper>
       <GaugeFill scrollPercentage={scrollPercentage} />
+      <Stdiv>🔔띵동! ‘킬러 문항 배제’ 피자가 도착했습니다!</Stdiv>
     </GaugeWrapper>
   );
 };
