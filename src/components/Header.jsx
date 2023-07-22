@@ -1,6 +1,6 @@
 // Header.js (예시 컴포넌트 파일 이름)
 import React from "react";
-import logo from "../../img/logo.png";
+import logo from "../img/logo.png";
 import styled from "styled-components";
 
 // 스타일드 컴포넌트로 스타일 정의

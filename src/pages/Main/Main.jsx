@@ -1,13 +1,17 @@
-import React from 'react'
-import Button from '../../components/Button/Button'
-import Input from '../../components/Input/Input'
-import useInput from '../../hooks/useInput';
-import ScrollGauge from '../../components/ScrollGauge/ScrollGauge';
-import Header from '../../components/Header/Header';
-import Banner from '../../components/Banner/Banner';
+import Banner from "../../components/Banner";
+import Button from "../../components/Button";
+import Card from "../../components/Card";
+import Category from "../../components/Category";
+import CheckBox from "../../components/CheckBox";
+import Footer from "../../components/Footer";
+import Guide from "../../components/Guide";
+import Header from "../../components/Header";
+import Header2 from "../../components/Header2";
+import Input from "../../components/Input";
+import ScrollGauge from "../../components/ScrollGauge";
 
 function Main() {
-  const [title, onChangeTitleHandler, resetTitle] = useInput();
+  // const [title, onChangeTitleHandler, resetTitle] = useInput();
 
   return (
     <div>
