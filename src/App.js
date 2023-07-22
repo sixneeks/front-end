@@ -1,9 +1,10 @@
 import './App.css';
+import Router from './shared/Router';
 
 function App() {
   return (
     <div>
-      식스
+      <Router />
     </div>
   );
 }
