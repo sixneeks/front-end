@@ -31,20 +31,22 @@ const Header2Wrapper = styled.div`
     padding-left: 20%;
   }
   .desktop-block {
+  
   }
+  
   
 `;
 
-const StyledInput = styled(Input)`
-  /* 여기에 사용자 정의 스타일을 추가합니다. */
-  width: 100px;
-  height: 40px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  padding: 8px;
-  font-size: 16px;
-  /* 다른 원하는 스타일을 추가할 수 있습니다. */
+const Stdescription = styled.div`
+  
 `;
+
+
+const Stbuttons = styled.div`
+ display: flex;
+  gap: 10px;
+  cursor: pointer;
+`
 
 const Header2 = () => {
   const handleButtonClick = () => {
@@ -62,9 +64,9 @@ const Header2 = () => {
       <div
         style={{ background: "#ff6b00", height: "470px", paddingTop: "10px" }}
       >
-        <div className="description">
+        <Stdescription>
           <p className="intro-head-subhead">
-            🚀지금 구독하면<b>내일 아침에</b> 읽을 수 있어요.
+            🚀지금 구독하면 <b>내일 아침에</b> 읽을 수 있어요.
             <br />
             ✨지금 <b>557,043명</b>이 뉴닉을 읽고 있어요.
           </p>
@@ -74,7 +76,7 @@ const Header2 = () => {
             <br />
             월/화/수/목/금 아침마다 세상 돌아가는 소식을 메일로 받아보세요.
           </p>
-        </div>
+          </Stdescription>
       <div style={{ marginLeft: '20%'}}>
           <div className="textfield">
             <Input type={"text"} placeholder={"이메일 주소"} />
@@ -94,7 +96,7 @@ const Header2 = () => {
               </span>
             </div>
           </div>
-          <div>
+          <Stbuttons>
             <Button
               name="뉴스레터 무료로 구독하기"
               colorSet="뉴스레터 무료로 구독하기"
@@ -105,11 +107,11 @@ const Header2 = () => {
               colorSet="앱 다운로드 하기 >"
               onClick={handleButtonClick}
             />
-            {/* 다른 버튼들 */}
-          </div>
+            </Stbuttons>
         </div>
       </div>
     </Header2Wrapper>
   );
 };
 export default Header2;
+
