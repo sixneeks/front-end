@@ -13,8 +13,8 @@ const HeaderWrapper = styled.header`
     border-bottom: 1px solid #051619;
     position: relative;
     z-index: 4;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   .header-in {
@@ -43,25 +43,20 @@ const HeaderWrapper = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: 0.7px solid black;
     /* flex: 1; 화면 크기가 작아지면 로고와의 간격이 자동으로 조정됩니다. */
   }
 
   .box {
-    width: 40px;
-    height: 40px;
-    border: 1px solid black;
+    width: 45px;
+    height: 45px;
+    border: 0.7px solid black;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: center;
     position: relative;
   }
-  /* 상자들을 세로로 정렬하는 미디어 쿼리 설정 */
-  @media screen and (max-width: 600px) {
-    .header-in {
-      flex-direction: column;
-      align-items: center;
-    }
-  }
+
 `;
 
 // 컴포넌트 함수 선언 (함수 컴포넌트)

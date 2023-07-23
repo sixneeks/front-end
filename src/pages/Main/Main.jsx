@@ -20,14 +20,14 @@ function Main() {
       <Header />
       <Header2 />
       <Category />
-      <Button />
-      <Card />
-      <CheckBox />
-      <Input />
+      {/* <Button /> */}
+      {/* <Card /> */}
+      {/* <CheckBox /> */}
+      {/* <Input />
       <Guide />
-      <ScrollGauge />
+      <ScrollGauge /> */}
       <Footer />
-     
+      
 
       {/* <Button name={"뉴스레터 무료로 구독하기"} colorSet={'뉴스레터 무료로 구독하기'}/>
       <Button name={"앱 다운로드 하기 >"} colorSet={'앱 다운로드 하기 >'}/>

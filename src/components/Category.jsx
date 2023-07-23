@@ -6,57 +6,67 @@ const Category = () => {
     <CategoryWrapper>
       <div className="category-outer">
         <div className="category-inner">
-        <div className="categorylink">
-            전체
-            
-          </div>
+          <div className="categorylink">전체</div>
           <div className="categorylink">
-          
             <span role="img" aria-label="">
               ⚖️
             </span>
-            정치</div>
+            정치
+          </div>
           <div className="categorylink">
-            
             <span role="img" aria-label="">
               💰
             </span>
-            경제</div>
+            경제
+          </div>
           <div className="categorylink">
-            
-            <span role="img" aria-label="">🌐</span>
-              
-  
-            세계</div>{" "}
+            <span role="img" aria-label="">
+              🌐
+            </span>
+            세계
+          </div>{" "}
           <div className="categorylink">
-            
-            <span role="img" aria-label="">🤖</span>
-            테크</div>{" "}
+            <span role="img" aria-label="">
+              🤖
+            </span>
+            테크
+          </div>{" "}
           <div className="categorylink">
-            
-            <span role="img" aria-label="">💪</span>
-            노동</div>{" "}
+            <span role="img" aria-label="">
+              💪
+            </span>
+            노동
+          </div>{" "}
           <div className="categorylink">
-            
-            <span role="img" aria-label="">🌱</span>
-            환경</div>{" "}
+            <span role="img" aria-label="">
+              🌱
+            </span>
+            환경
+          </div>{" "}
           <div className="categorylink">
-            
-            <span role="img" aria-label="">🤝</span>
-            인권</div>{" "}
+            <span role="img" aria-label="">
+              🤝
+            </span>
+            인권
+          </div>{" "}
           <div className="categorylink">
-            
-            <span role="img" aria-label="">👥</span>
-            사회</div>{" "}
+            <span role="img" aria-label="">
+              👥
+            </span>
+            사회
+          </div>{" "}
           <div className="categorylink">
-           
-            <span role="img" aria-label="">🎞</span>
-            문화</div>
-          
+            <span role="img" aria-label="">
+              🎞
+            </span>
+            문화
+          </div>
           <div className="categorylink">
-            
-            <span role="img" aria-label="">🧘</span>
-            라이프</div>
+            <span role="img" aria-label="">
+              🧘
+            </span>
+            라이프
+          </div>
         </div>
       </div>
     </CategoryWrapper>
@@ -87,16 +97,16 @@ const CategoryWrapper = styled.div`
     /* overflow: auto; */
     white-space: nowrap;
     overflow: overlay;
-    font-size: 14px;
-    font-weight: 500;
-    gap: 14px;
-}
-.categorylink {
+    font-size: 15px;
+    font-weight: 600;
+    gap: 18px;
+  }
+  .categorylink {
     display: flex;
     align-items: center;
     cursor: pointer;
     &:hover {
-color: #ff6b00;
-}
+      color: #ff6b00;
+    }
   }
 `;
