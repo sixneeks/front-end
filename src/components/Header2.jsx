@@ -32,6 +32,7 @@ const Header2Wrapper = styled.div`
   }
   .desktop-block {
   }
+  
 `;
 
 const StyledInput = styled(Input)`
@@ -74,7 +75,7 @@ const Header2 = () => {
             월/화/수/목/금 아침마다 세상 돌아가는 소식을 메일로 받아보세요.
           </p>
         </div>
-        <div>
+      <div style={{ marginLeft: '20%'}}>
           <div className="textfield">
             <Input type={"text"} placeholder={"이메일 주소"} />
             <Input type={"text"} placeholder={"닉네임"} />

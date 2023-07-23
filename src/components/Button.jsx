@@ -29,6 +29,7 @@ const colorHandler = (colorset) => {
     case '뉴스레터 무료로 구독하기':
       return css`
         color: #051619;
+        border: 2px solid #051619;
         background-color: white;
         width: 222px;
         height: 48.85px;
@@ -40,6 +41,7 @@ const colorHandler = (colorset) => {
     case '앱 다운로드 하기 >':
       return css`
         color: white;
+        border: 2px solid #051619;
         background-color: #051619;
         width: 222px;
         height: 48.85px;
