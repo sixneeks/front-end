@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import waitinggosum2 from "../img/waitinggosum2.png";
 import waitinggosum from "../img/waitinggosum.png";
+import arrow from "../img/arrow.png";
 
 function UnderBanner() {
   return (
@@ -93,5 +94,11 @@ const Sttext = styled.div`
   font-weight: 700;
   line-height: 1.4;
 
+  &::after {
+    content: url(${arrow}); /* 화살표 이미지 경로를 여기에 넣으세요. */
+    width: 20px; /* 화살표 이미지 크기를 조정하세요. */
+    padding-top: 6px;
+    margin-left: 20px; /* 화살표 이미지와 텍스트 사이의 간격을 조정하세요. */
+  }
   
 `;
