@@ -55,7 +55,7 @@ export default Login
 const StLoginOutContainer = styled.div`
   background-color:#eae7de;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
 `
 
 const StLoginContainer = styled.div`
@@ -70,7 +70,7 @@ const StLoginContainer = styled.div`
 `
 const Stlogo = styled.img`
   width: 226px;
-  margin: 0px auto 30px;
+  margin: 0px auto 40px;
   cursor: pointer;
 `
 const StGoGoogleButton = styled.button`
@@ -81,34 +81,35 @@ const StGoGoogleButton = styled.button`
   border-radius: 8px;
   padding: 10px 5px 11px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   align-items: center;
   gap:10px;
 `
 
 const StGoogleLogo = styled.img`
   height: 25px;
+  margin-left: 10px;
 `
 
 const StGoGoogleText = styled.div`
-  
 `
 const StLine = styled.div`
-  border: 1px solid #051619;
+  border-bottom: 1px solid #051619;
   margin : 24px 0px;
   width: 100%;
 `
 const StLoginBody = styled.div`
   width: 100%;
-  height: 200px;
+  /* height: 200px; */
   display: flex;
   flex-direction: column;
   gap:20px;
 `
 const StLoginForgot = styled.div`
   text-decoration: underline;
+  font-size: 14px;
   cursor: pointer;
 `
 
@@ -116,14 +117,16 @@ const StLoginFoot = styled.div`
   margin: 28px 0px;
   font-size: 14px;
   width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap:20px;
+  gap:25px;
 `
 
 
 const StGoSignup = styled.div`
   text-decoration: underline;
   cursor: pointer;
+  font-size: 14px;
 `
