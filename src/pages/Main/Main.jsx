@@ -11,7 +11,7 @@ import Footer from "../../components/Footer";
 function Main() {
 
   return (
-    <div>
+    <div style={{overflow:"hidden"}}>
 
       <Banner />
       <Header />
@@ -24,7 +24,9 @@ function Main() {
       
       <ScrollGauge /> */}
       <UnderBanner />
-      <Guide />
+      <Guide text={`퀴어 프렌들리한 팀을 위한 뉴닉 레인보우 가이드 🏳️‍🌈`} to={`https://www.notion.so/11e07b3b430a42a9ac8ed26893029e56`}/>
+      <Guide text={`뉴닉의 여성용어 가이드 🍞🌹`} to={`https://www.notion.so/90eb61e64b18407196422b3405a3bab6`}/>
+      <Guide text={`오늘까지 588회 뉴스레터를 발행했고 557,579명이 구독했어요!`} to={`/`} isHover={true}/>
       <Footer />
       
 
