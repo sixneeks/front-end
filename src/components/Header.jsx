@@ -3,6 +3,26 @@ import React from "react";
 import logo from "../img/logo.png";
 import styled from "styled-components";
 
+// 컴포넌트 함수 선언 (함수 컴포넌트)
+const Header = () => {
+  return (
+    <HeaderWrapper>
+      <div className="header-out">
+        <div className="header-in">
+          <img src={logo} alt="헤더 이미지" />
+          <div className="boxs">
+          <div className="box">☺️</div>
+          <div className="box">💖</div>
+          </div>
+        </div>
+      </div>
+    </HeaderWrapper>
+  );
+};
+
+// 컴포넌트를 다른 파일에서 사용할 수 있도록 내보냅니다.
+export default Header;
+
 // 스타일드 컴포넌트로 스타일 정의
 const HeaderWrapper = styled.header`
   .header-out {
@@ -58,23 +78,3 @@ const HeaderWrapper = styled.header`
   }
 
 `;
-
-// 컴포넌트 함수 선언 (함수 컴포넌트)
-const Header = () => {
-  return (
-    <HeaderWrapper>
-      <div className="header-out">
-        <div className="header-in">
-          <img src={logo} alt="헤더 이미지" />
-          <div className="boxs">
-          <div className="box">☺️</div>
-          <div className="box">💖</div>
-          </div>
-        </div>
-      </div>
-    </HeaderWrapper>
-  );
-};
-
-// 컴포넌트를 다른 파일에서 사용할 수 있도록 내보냅니다.
-export default Header;

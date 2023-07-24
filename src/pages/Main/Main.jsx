@@ -1,22 +1,14 @@
-import Banner from "../../components/Banner";
-import Button from "../../components/Button";
-import Card from "../../components/Card";
-import Category from "../../components/Category";
-import CheckBox from "../../components/CheckBox";
-import Footer from "../../components/Footer";
-import Guide from "../../components/Guide";
-import Header from "../../components/Header";
-import Header2 from "../../components/Header2";
-import Input from "../../components/Input";
-import ScrollGauge from "../../components/ScrollGauge";
+
 import React from "react";
 import UnderBanner from "../../components/UnderBanner";
 
+import Header2 from "../../components/Header2";
+
 function Main() {
-  // const [title, onChangeTitleHandler, resetTitle] = useInput();
 
   return (
     <div>
+
       <Banner />
       <Header />
       <Header2 />
@@ -42,6 +34,7 @@ function Main() {
       {/* 여기에 나머지 내용 추가 */}
       <div style={{height:'5000px'}}></div>
     </div>
+
     </div>
   )
 }
