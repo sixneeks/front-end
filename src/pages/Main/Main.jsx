@@ -26,7 +26,6 @@ function Main() {
       <Header />
       <Header2 />
       <Category />
-      <ScrollGauge /> */}
 
       <StCardContainer>
         <Card src={dog} title={"'신종 펫숍' 사기행각"} date={"2023.07.24"} tag={"사회"} />
