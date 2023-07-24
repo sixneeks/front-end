@@ -1,7 +1,7 @@
-// Header.js (예시 컴포넌트 파일 이름)
-import React from "react";
-import logo from "../img/logo.png";
-import styled from "styled-components";
+// // Header.js (예시 컴포넌트 파일 이름)
+// import React from "react";
+// import logo from "../img/logo.png";
+// import styled from "styled-components";
 
 // 컴포넌트 함수 선언 (함수 컴포넌트)
 const Header = () => {
@@ -20,8 +20,8 @@ const Header = () => {
   );
 };
 
-// 컴포넌트를 다른 파일에서 사용할 수 있도록 내보냅니다.
-export default Header;
+// // 컴포넌트를 다른 파일에서 사용할 수 있도록 내보냅니다.
+// export default Header;
 
 // 스타일드 컴포넌트로 스타일 정의
 const HeaderWrapper = styled.header`
