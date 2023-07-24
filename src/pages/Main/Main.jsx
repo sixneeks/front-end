@@ -1,8 +1,12 @@
 
 import React from "react";
 import UnderBanner from "../../components/UnderBanner";
-
+import Banner from "../../components/Banner"
+import Header from "../../components/Header";
 import Header2 from "../../components/Header2";
+import Category from "../../components/Category"
+import Guide from "../../components/Guide"
+import Footer from "../../components/Footer"
 
 function Main() {
 
@@ -17,7 +21,7 @@ function Main() {
       {/* <Card /> */}
       {/* <CheckBox /> */}
       {/* <Input />
-     
+      
       <ScrollGauge /> */}
       <UnderBanner />
       <Guide />
