@@ -5,7 +5,7 @@
  * 2. iOS와 IE에서 기기 회전시에 사용자가 확대하지 않아도 글씨 크기가 재조정되는 것을 예방.
  */
 
- html {
+  html {
     font-family: sans-serif; /* 1 */
     -ms-text-size-adjust: 100%; /* 2 */
     -webkit-text-size-adjust: 100%; /* 2 */
@@ -85,6 +85,8 @@
    */
   
   a {
+    color: inherit;
+    text-decoration: none;
     background-color: transparent;
   }
   
@@ -282,16 +284,16 @@
    *    `input` and others.
    */
   
-   button,
-   html input[type="button"],
-   input[type="reset"],
-   input[type="submit"] {
-     -webkit-appearance: button;
+  button,
+  html input[type="button"],
+  input[type="reset"],
+  input[type="submit"] {
+    -webkit-appearance: button;
      -moz-appearance: button; /* Firefox에서도 적용 */
-     appearance: button;
-     cursor: pointer;
-   }
-   
+    appearance: button;
+    cursor: pointer;
+  }
+  
 
   /**
    * disabled된 요소의 기본 커서를 재설정
