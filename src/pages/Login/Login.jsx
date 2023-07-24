@@ -5,8 +5,10 @@ import googlelogo from "../../img/googlelogo.png"
 import Input from '../../components/Input';
 import useInput from '../../hooks/useInput';
 import Button from '../../components/Button';
+import { useNavigate } from 'react-router-dom';
 
 function Login() {
+  const navigate = useNavigate();
 
   const [email, onChangeEmailHandler, resetEmail] = useInput();
   const [password, onChangePasswordHandler, resetPassword] = useInput();
@@ -30,7 +32,7 @@ function Login() {
   return (
     <StLoginOutContainer>
       <StLoginContainer>
-        <Stlogo src={logo} alt="로고" />
+        <Stlogo src={logo} alt="로고" onClick={()=>{navigate('/')}}/>
         <StGoGoogleButton>
           <StGoogleLogo src={googlelogo} alt="구글 로고"/>
           <StGoGoogleText>구글로 시작하기</StGoGoogleText>
@@ -43,7 +45,7 @@ function Login() {
         </StLoginBody>
         <StLoginFoot>
           <Button name={"로그인"} colorSet={'로그인'} onClick={onSaveClickHandler}/>
-          <StGoSignup>회원가입하기</StGoSignup>
+          <StGoSignup onClick={()=>{navigate('/signup')}}>회원가입하기</StGoSignup>
         </StLoginFoot>
       </StLoginContainer>
     </StLoginOutContainer>
