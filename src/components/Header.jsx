@@ -14,8 +14,8 @@ const Header = () => {
         <div className="header-in">
           <img src={logo} alt="헤더 이미지" onClick={()=>{navigate('/')}} />
           
-          <div className="box">🔍</div>
-          <div className="box">
+          <div className="box1">🔍</div>
+          <div className="box2">
             <img
               src={person}
               alt="이미지"
@@ -75,14 +75,26 @@ const HeaderWrapper = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: 0.7px solid black;
+    border: 1px solid black;
     /* flex: 1; 화면 크기가 작아지면 로고와의 간격이 자동으로 조정됩니다. */
   }
 
-  .box {
-    width: 45px;
-    height: 45px;
-    border: 0.7px solid black;
+  .box1 {
+    width: 48px;
+    height: 48px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .box2 {
+    margin-left: -1px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid black;
     display: flex;
     align-items: center;
     justify-content: center;
