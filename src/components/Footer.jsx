@@ -87,7 +87,7 @@ const StButtonSet = styled.div`
 const StButton = styled.div`
 margin-bottom:15px;
 &:hover {
-color: red;
+color: #ff6b00;
 }
 `
 const StAddress = styled.div`
