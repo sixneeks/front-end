@@ -10,6 +10,7 @@ import Header2 from "../../components/Header2";
 import Input from "../../components/Input";
 import ScrollGauge from "../../components/ScrollGauge";
 import React from "react";
+import UnderBanner from "../../components/UnderBanner";
 
 function Main() {
   // const [title, onChangeTitleHandler, resetTitle] = useInput();
@@ -24,8 +25,10 @@ function Main() {
       {/* <Card /> */}
       {/* <CheckBox /> */}
       {/* <Input />
-      <Guide />
+     
       <ScrollGauge /> */}
+      <UnderBanner />
+      <Guide />
       <Footer />
       
 
