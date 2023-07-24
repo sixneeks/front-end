@@ -32,7 +32,6 @@ const Stouter = styled.div`
   margin-top: 0;
   /* padding-top: 90px; */
 
-  border-top: 2px solid #051619;
   position: relative;
   cursor: pointer;
 `;

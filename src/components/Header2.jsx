@@ -89,7 +89,7 @@ const StSloganInner = styled.div`
     font-weight: 700;
     display: flex;
     margin: 0 auto;
-    padding: 0 22%;
+    /* padding: 0 22%; */
 `
 
 const StIntroHead = styled.div`
@@ -100,13 +100,12 @@ const StIntroHead = styled.div`
     justify-content: center;
     /* align-items: center; */
     flex-direction: row;
-    gap: 30px;
 `
 const StIntroHeadInner = styled.div`
     max-width: 1200px;
     
     margin-left: auto;
-    padding-left:22%;
+    /* padding-left:19%; */
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -138,7 +137,7 @@ const StbuttonSet = styled.div`
 `
 const StImgContainer = styled.div`
   margin-right: auto;
-  padding-right:22%;
+  /* padding-right:19%; */
 `
 
 const StGosum = styled.img`
