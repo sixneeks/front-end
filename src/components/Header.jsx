@@ -4,7 +4,6 @@ import logo from "../img/logo.png";
 import styled from "styled-components";
 
 
-
 // 컴포넌트 함수 선언 (함수 컴포넌트)
 const Header = () => {
   return (
