@@ -4,12 +4,14 @@ import logo from "../../img/logo.png";
 import Input from '../../components/Input';
 import CheckBox from '../../components/CheckBox';
 import Button from '../../components/Button';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
+  const navigate = useNavigate();
   return (
     <StSignUpOutContainer>
       <StSignUpContainer>
-        <Stlogo src={logo} alt="로고" />
+        <Stlogo src={logo} alt="로고" onClick={()=>{navigate('/')}}/>
         <StSigeUpBody>
           <Input type={'text'}  placeholder={"이메일"} />
           <Input type={'password'} placeholder={"비밀번호 (8자 이상)"} />

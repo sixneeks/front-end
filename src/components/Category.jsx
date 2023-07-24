@@ -78,6 +78,10 @@ const Category = () => {
 export default Category;
 
 const CategoryWrapper = styled.div`
+    position: sticky;
+    top: 0;
+    z-index: 3;
+
   .category-outer {
     height: 69px;
     display: flex;
@@ -87,9 +91,7 @@ const CategoryWrapper = styled.div`
     background: #fff;
     box-sizing: border-box;
     overflow: hidden;
-    position: sticky;
-    top: 0;
-    z-index: 1;
+    
     margin-bottom: -1px;
   }
   .category-inner {

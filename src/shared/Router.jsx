@@ -4,6 +4,7 @@ import Main from '../pages/Main/Main'
 import Detail from '../pages/Detail/Detail'
 import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
+import MyPage from '../pages/MyPage/MyPage';
 import Tag from "../pages/Tag/Tag";
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -19,6 +20,7 @@ const Router = () => {
                     <Route path="/login" element={<Login />} />
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/tag/:id" element={<Tag />} />
+                    <Route path="/mypage" element={<MyPage />} />
                 </Routes>
             </BrowserRouter>
         </QueryClientProvider>
