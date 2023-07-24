@@ -92,6 +92,7 @@ const Sttext = styled.div`
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.4;
+  cursor: pointer;
 
   &::after {
     content: url(${arrow}); /* 화살표 이미지 경로를 여기에 넣으세요. */
