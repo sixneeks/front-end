@@ -4,13 +4,6 @@ import Arrow from '../img/GuideArrow.png';
 import { Link } from 'react-router-dom'; 
 
 function Guide({ text, to, isHover, onClick }) {
-  // 최상단으로 이동
-  const scrollToTop = () => {
-    window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-    });
-  }
   return (
     <StOutGuide>
       {/* 외부 사이트 링크 */}
