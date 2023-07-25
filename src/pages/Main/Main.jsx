@@ -12,6 +12,38 @@ import Card from "../../components/Card";
 import Button from "../../components/Button";
 
 function Main() {
+
+import { useQuery, useQueryClient } from "react-query";
+import { getTotalPosts } from "../../axios/api";
+import Spinner from "../../components/Spinner";
+
+function Main() {
+const queryClient = useQueryClient();
+
+const [lastArticleId, setLastArticleId] = useState('')
+console.log("lastArticleId", lastArticleId)
+
+const { isLoading, isError, data } = useQuery("post", () => getTotalPosts(lastArticleId));
+
+
+if (isLoading) {
+  queryClient.invalidateQueries("post")
+  return <Spinner/>
+}
+
+if (isError) {
+  return <p>오류가 발생하였습니다...!</p>;
+}
+
+console.log(data)
+const postdata = data.data
+
+
+const plusPostHandle = (id) =>{
+      setLastArticleId(id); // 새로운 페이지의 ID로 'lastArticleId'를 업데이트합니다.
+}
+
+
   // 클릭시 스크롤 최상단으로 이동.
   const scrollToTop = () => {
     window.scrollTo({
@@ -21,7 +53,7 @@ function Main() {
   }
   return (
     <StMainContainer>
-    
+      
       <Banner />
       <Header />
       <Header2 />
