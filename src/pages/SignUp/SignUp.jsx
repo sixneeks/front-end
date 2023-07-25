@@ -35,18 +35,13 @@ function SignUp() {
     if (!passwordRegex.test(password)) {alert("password: 대소문자, 숫자, 특수문자 포함 8~15자 이내, 각 요소 1개이상 포함");return;}
     if (!nicknameRegex.test(nickname)) {alert("nickname: 알파벳소문자, 한글 ,숫자로만 이루어지고, 2자 이상 10자 이하");return;}
 
-    const newUser = { // 예시사이트 확인용
-      id: email, 
-      password: password,
-    }
-    addNewUserMutation.mutate(newUser)
 
-  //   const newUser = {
-  //     email : email,
-  //     password : password,
-  //     nickname : nickname,
-  //     };
-  //   addNewUserMutation.mutate(newUser)
+    const newUser = {
+      email : email,
+      password : password,
+      nickname : nickname,
+      };
+    addNewUserMutation.mutate(newUser)
   };
 
   return (

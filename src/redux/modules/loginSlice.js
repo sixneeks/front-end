@@ -14,12 +14,12 @@ const isLoginSlice = createSlice({
     logIn: (state, action) => {
         state.isLogin = true;
     },
-    logOff: (state, action) => {
+    logOut: (state, action) => {
         state.isLogin = false;
         localStorage.removeItem("token"); // 토큰 삭제
     },
   },
 });
 
-export const { logIn, logOff } = isLoginSlice.actions;
+export const { logIn, logOut } = isLoginSlice.actions;
 export default isLoginSlice.reducer;

@@ -42,42 +42,59 @@ export default instance;
 // 회원가입
 const addUsers = async (newUser) => {
   const response = await instance.post(`/api/members/signup`, newUser)
-  console.log("회원가입", response)
+  // console.log("회원가입", response)
   return response.data;
 }
 
 // 회원 탈퇴
 const deleteUsers = async () => {
-  const response = await instance.delete(`/api/members/signout`)
-  console.log("회원 탈퇴", response)
+  const response = await instance.delete(`/api/members/withdraw`)
+  // console.log("회원 탈퇴", response)
   return response.data;
 }
 
 //로그인 
 const login = async (loginInformation) => {
   const response = await instance.post(`/api/members/login`, loginInformation)
-  console.log("로그인", response)
+  // console.log("로그인", response)
   return response.data;
 }
 
 //로그 아웃
 const logout = async () => {
   const response = await instance.post(`/api/members/logout`)
-  console.log("로그아웃", response)
+  // console.log("로그아웃", response)
   return response.data;
 }
 
 //  전체 기사 조회
-const getTotalPosts = async () => {
-  const response = await instance.get(`/api/articles?page=0&size=12`);
+const getTotalPosts = async (id) => {
+  const response = await instance.get(`/api/articles?lastArticleId=${id}`);
+  // console.log("전체 기사 조회", response)
   return response.data;
 }
 
 //  태그별 기사 조회
 const getTagPosts = async (tag) => {
   const response = await instance.get(`/api/articles?tag=${tag}&page=0&size=12`);
+  // console.log("태그별 기사 조회", response)
   return response.data;
 }
+
+// 개별 기사 상세조회
+const getDetailPosts = async (id) => {
+  const response = await instance.get(`/api/articles/${id}`);
+  // console.log("개별 기사 상세 조회", response)
+  return response.data;
+}
+
+//  좋아요
+const like = async (id) => {
+  const response = await instance.post(`/api/articles/${id}/likes`)
+  // console.log("좋아요", response)
+  return response.data;
+}
+
 
 
 
@@ -92,4 +109,4 @@ const getTagPosts = async (tag) => {
 //   console.log("process.env.REACT_APP_SERVER_URL", process.env)
 //   await axios.post(`${process.env.REACT_APP_SERVER_URL}/register`, newUser);
 // }
-export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts}
+export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts, getDetailPosts, like}

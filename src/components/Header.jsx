@@ -1,50 +1,53 @@
 // Header.js (예시 컴포넌트 파일 이름)
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import logo from "../img/logo.png";
 import person from "../img/person.png";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Select from "./Select";
+import { useSelector } from "react-redux";
 
 
 // 컴포넌트 함수 선언 (함수 컴포넌트)
 const Header = () => {
   const navigate = useNavigate();
+  const isLogin = useSelector((state) => state.isLogin.isLogin)
   const [isSelectOpen, setIsSelectOpen] = useState(false);
   
   const handleBox2Click = () => {
     setIsSelectOpen(!isSelectOpen);
   };
 
+
+  const node = useRef(); // 창의 바깥부분을 클릭하였을때 창이 사라짐
+  useEffect(() => { 
+    const clickOutside = (e) => {
+    if (isSelectOpen && node.current && !node.current.contains(e.target)) setIsSelectOpen(false);};
+    document.addEventListener("mousedown", clickOutside);
+    return () => {document.removeEventListener("mousedown", clickOutside);};
+  }, [isSelectOpen]);
+
+
+  console.log("isLogin", isLogin)
+
   return (
     <HeaderWrapper>
       <div className="header-out">
         <div className="header-in">
-          <img
-            src={logo}
-            alt="헤더 이미지"
-            onClick={() => {
-              navigate("/");
-            }}
-          />
-          
-          <div className="box1">🔍</div>
+          <img src={logo} alt="헤더 이미지" onClick={() => {navigate("/");}} />
+          <div className="box1" onClick={() => {navigate("/search");}}>🔍</div>
+          {isLogin?
           <div className="box2" onClick={handleBox2Click}>
-         
-            
-            <img
-              src={person}
-              alt="이미지"
-              style={{
-                width: "40%", // 원하는 크기로 조정하세요
-                height: "40%", // 이미지 비율 유지
-              }}
-            />
-            
+            <div ref={node}><Select ref={node} position="relative" isSelectOpen={isSelectOpen}/></div>
+            🦔
           </div>
+          :
+          <div className="box2" onClick={() => {navigate("/login");}}>
+          <img src={person} alt="이미지" style={{ width: "40%",height: "40%",}}/>
+          </div>
+          }
         </div>
-        {isSelectOpen && <Select position="absolute" />}
       </div>
     </HeaderWrapper>
     
@@ -115,6 +118,7 @@ const HeaderWrapper = styled.header`
     margin-left: -1px;
     width: 48px;
     height: 48px;
+    font-size: 30px;
     border: 1px solid black;
     display: flex;
     align-items: center;
@@ -123,3 +127,4 @@ const HeaderWrapper = styled.header`
     cursor: pointer;
   }
 `;
+
