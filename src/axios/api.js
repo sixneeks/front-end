@@ -2,6 +2,9 @@ import axios from "axios";
 
 export const instance = axios.create({
   baseURL: process.env.REACT_APP_SERVER_URL,
+  // headers: {
+  //   "Content-Type": "application/json",
+  // },
 });
 
 instance.interceptors.request.use(
@@ -12,8 +15,6 @@ instance.interceptors.request.use(
     // 토큰이 존재하면 헤더에 담아서 요청 보내기
     if (token) {
       config.headers.Authorization = `${token}`;
-      //config.headers.ㄻㄶㅁㄶㅁ
-      // 리프레쉬 토큰 같이 보내함
     }
 
     console.log("인터셉트 요청 성공!");
@@ -28,6 +29,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   function (response) {
     console.log("인터넵트 응답 받았어요!");
+    console.log("response", response)
     return response;
   },
   function (error) {
@@ -37,3 +39,57 @@ instance.interceptors.response.use(
 );
 
 export default instance;
+// 회원가입
+const addUsers = async (newUser) => {
+  const response = await instance.post(`/api/members/signup`, newUser)
+  console.log("회원가입", response)
+  return response.data;
+}
+
+// 회원 탈퇴
+const deleteUsers = async () => {
+  const response = await instance.delete(`/api/members/signout`)
+  console.log("회원 탈퇴", response)
+  return response.data;
+}
+
+//로그인 
+const login = async (loginInformation) => {
+  const response = await instance.post(`/api/members/login`, loginInformation)
+  console.log("로그인", response)
+  return response.data;
+}
+
+//로그 아웃
+const logout = async () => {
+  const response = await instance.post(`/api/members/logout`)
+  console.log("로그아웃", response)
+  return response.data;
+}
+
+//  전체 기사 조회
+const getTotalPosts = async () => {
+  const response = await instance.get(`/api/articles?page=0&size=12`);
+  return response.data;
+}
+
+//  태그별 기사 조회
+const getTagPosts = async (tag) => {
+  const response = await instance.get(`/api/articles?tag=${tag}&page=0&size=12`);
+  return response.data;
+}
+
+
+
+// `/api/members/login`  로그인
+// `/api/members/signup`  회원가입
+// `/api/members/logout`  로그아웃
+
+
+
+// 예시사이트 확인용
+// const addUsers = async (newUser) => {
+//   console.log("process.env.REACT_APP_SERVER_URL", process.env)
+//   await axios.post(`${process.env.REACT_APP_SERVER_URL}/register`, newUser);
+// }
+export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts}

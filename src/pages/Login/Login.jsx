@@ -6,14 +6,28 @@ import Input from '../../components/Input';
 import useInput from '../../hooks/useInput';
 import Button from '../../components/Button';
 import { useNavigate } from 'react-router-dom';
+import { useMutation } from 'react-query';
+import { login } from '../../axios/api';
+import { useDispatch } from 'react-redux';
+import { logIn } from '../../redux/modules/loginSlice';
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const [email, onChangeEmailHandler, resetEmail] = useInput();
-  const [password, onChangePasswordHandler, resetPassword] = useInput();
+  const [email, onChangeEmailHandler] = useInput();
+  const [password, onChangePasswordHandler] = useInput();
 
-  const onSaveClickHandler = () => {
+  const loginMutation = useMutation(login, {
+    onSuccess: () => {
+      console.log("로그인 성공");
+      dispatch(logIn())
+      navigate('/')
+    }
+  });
+
+
+  const loginClickHandler = () => {
     // 이메일 형식 검사를 위한 정규식
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -22,11 +36,18 @@ function Login() {
       alert("이메일 형식이 아닙니다.");
       return;
     }
+    const loginInformation = {
+      id : email,
+      password : password,
+    }
+    loginMutation.mutate(loginInformation)
 
-    // 여기서 저장 버튼을 클릭했을 때 원하는 저장 로직을 구현합니다.
-    // 저장 후에 입력값들을 초기화합니다.
-    resetEmail();
-    resetPassword();
+    // const loginInformation = {
+    //   email : email,
+    //   password : password,
+    // }
+    // loginMutation.mutate(loginInformation)
+    
   };
 
   return (
@@ -44,7 +65,7 @@ function Login() {
           <StLoginForgot>비밀번호를 잊으셨나요?</StLoginForgot>
         </StLoginBody>
         <StLoginFoot>
-          <Button name={"로그인"} colorSet={'로그인'} onClick={onSaveClickHandler}/>
+          <Button name={"로그인"} colorSet={'로그인'} onClick={loginClickHandler}/>
           <StGoSignup onClick={()=>{navigate('/signup')}}>회원가입하기</StGoSignup>
         </StLoginFoot>
       </StLoginContainer>
