@@ -32,9 +32,8 @@ const Stouter = styled.div`
   margin-bottom: 0;
   margin-top: 0;
   /* padding-top: 90px; */
-
   position: relative;
-  cursor: pointer;
+ 
 `;
 
 const Stinner = styled.div`
@@ -43,9 +42,10 @@ const Stinner = styled.div`
   justify-content: center;
   flex-direction: column;
   width: 100%;
-  height: 100px;
+  height: 91px;
   margin-top: 100px;
   margin-bottom: 0;
+  border-top: 2px solid #051619;
   cursor: pointer;
   background: #ff6b00;
   z-index: 0;
@@ -92,12 +92,13 @@ const Sttext = styled.div`
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.4;
+  cursor: pointer;
 
   &::after {
     content: url(${arrow}); /* 화살표 이미지 경로를 여기에 넣으세요. */
     width: 20px; /* 화살표 이미지 크기를 조정하세요. */
     padding-top: 6px;
-    margin-left: 20px; /* 화살표 이미지와 텍스트 사이의 간격을 조정하세요. */
+    margin-left: 15px; /* 화살표 이미지와 텍스트 사이의 간격을 조정하세요. */
   }
   
 `;

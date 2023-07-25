@@ -4,7 +4,7 @@ import Arrow from '../img/GuideArrow.png';
 import { Link } from 'react-router-dom'; 
 
 function Guide({ text, to, isHover, onClick }) {
-  
+
   return (
     <StOutGuide>
       {/* 외부 사이트 링크 */}
