@@ -34,52 +34,54 @@ function Select({position}) {
   </div>)
 }
 
-export default Select
+export default Select;
 
 const StSelectButton = styled.div`
-  width: 300px;
-  height: 40px;
+  width: 280px;
+  height: 48px;
   padding: 0px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid rgb(221, 221, 221);
+  border: 1px solid black;
   background-color: rgb(255, 255, 255);
-  border-radius: 12px;
   cursor: pointer;
+  z-index: 10;
 `
 
 const StSelectList = styled.ul`
   top : 643px; // !
-  width: 300px;
-  height: 40px;
+  width: 280px;
+  height: 48px;
   margin: 0%;
   padding-left: 0; // ul 밑의 li부분은 기본적으로 padding-left값이 있어 이것을 초기화 해줌
   list-style: none; // 목록 마커 삭제
+  border: 1px solid black;
   position: ${(props) => props.position};
 `;
 
 const StLi = styled.li`
-height: 40px;
+height: 48px;
 display: flex;
-justify-content: center;
+justify-content: left;
 align-items: center;
 background-color: white;
-font-size: 13px;
-border-left: 2px solid lightgrey;
-border-right: 2px solid lightgrey;
+font-size: 14px;
+font-weight: 500;
+border-left: 1px solid black;
+border-right: 1px solid black;
+padding-left: 15px;
 cursor: pointer;
 &:hover {
-    background-color: rgb(221, 221, 221);
+    background-color: black;
+    color: white;
   }
 &:first-child {
-  border-top: 2px solid rgb(221, 221, 221);
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  border-bottom: 1px solid black;
+
 }
 &:last-child {
-  border-bottom: 2px solid rgb(221, 221, 221);
-  border-bottom-left-radius: 12px;
-  border-bottom-right-radius: 12px;
+  border: 1px solid black;
+  
 }
 `

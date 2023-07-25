@@ -3,19 +3,36 @@ import React from "react";
 import logo from "../img/logo.png";
 import person from "../img/person.png";
 import styled from "styled-components";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
+import Select from "./Select";
+
 
 // 컴포넌트 함수 선언 (함수 컴포넌트)
 const Header = () => {
   const navigate = useNavigate();
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+  
+  const handleBox2Click = () => {
+    setIsSelectOpen(!isSelectOpen);
+  };
+
   return (
     <HeaderWrapper>
       <div className="header-out">
         <div className="header-in">
-          <img src={logo} alt="헤더 이미지" onClick={()=>{navigate('/')}} />
+          <img
+            src={logo}
+            alt="헤더 이미지"
+            onClick={() => {
+              navigate("/");
+            }}
+          />
           
           <div className="box1">🔍</div>
-          <div className="box2">
+          <div className="box2" onClick={handleBox2Click}>
+         
+            
             <img
               src={person}
               alt="이미지"
@@ -24,10 +41,13 @@ const Header = () => {
                 height: "40%", // 이미지 비율 유지
               }}
             />
+            
           </div>
         </div>
+        {isSelectOpen && <Select position="absolute" />}
       </div>
     </HeaderWrapper>
+    
   );
 };
 
@@ -47,6 +67,7 @@ const HeaderWrapper = styled.header`
     z-index: 4;
     padding-top: 40px;
     padding-bottom: 40px;
+    position: relative;
   }
 
   .header-in {

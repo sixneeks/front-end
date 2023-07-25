@@ -6,7 +6,9 @@ import Login from '../pages/Login/Login'
 import SignUp from '../pages/SignUp/SignUp'
 import MyPage from '../pages/MyPage/MyPage';
 import Tag from "../pages/Tag/Tag";
+import ProfileSetting from "../pages/ProfileSetting/ProfileSetting";
 import { QueryClient, QueryClientProvider } from "react-query";
+
 
 const queryClient = new QueryClient();
 
@@ -21,6 +23,7 @@ const Router = () => {
                     <Route path="/signup" element={<SignUp />} />
                     <Route path="/tag/:id" element={<Tag />} />
                     <Route path="/mypage" element={<MyPage />} />
+                    <Route path="/profilesetting" element={<ProfileSetting />} />
                 </Routes>
             </BrowserRouter>
         </QueryClientProvider>
