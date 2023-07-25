@@ -18,6 +18,8 @@ instance.interceptors.request.use(
     }
 
     console.log("인터셉트 요청 성공!");
+    console.log("config", config);
+
     return config;
   },
   function (error) {
@@ -29,7 +31,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   function (response) {
     console.log("인터넵트 응답 받았어요!");
-    console.log("response", response)
+    console.log("responseresponse", response)
     return response;
   },
   function (error) {
@@ -69,14 +71,14 @@ const logout = async () => {
 
 //  전체 기사 조회
 const getTotalPosts = async (id) => {
-  const response = await instance.get(`/api/articles?lastArticleId=${id}`);
+  const response = await instance.get(`/api/articles?page=${id}`);
   // console.log("전체 기사 조회", response)
   return response.data;
 }
 
 //  태그별 기사 조회
-const getTagPosts = async (tag) => {
-  const response = await instance.get(`/api/articles?tag=${tag}&page=0&size=12`);
+const getTagPosts = async (tag, id) => {
+  const response = await instance.get(`/api/articles?tag=${tag}&page=${id}`);
   // console.log("태그별 기사 조회", response)
   return response.data;
 }
