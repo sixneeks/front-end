@@ -2,8 +2,18 @@ import React from 'react'
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { styled } from 'styled-components'
 import ProgressBar from './ProgressBar';
+import { useSelector, useDispatch } from 'react-redux'; // 추가
+import { incrementLikes } from '../redux/modules/likeSlice';
 
 function CardInner() {
+
+    const likes = useSelector((state) => state.like.likes); // 추가
+    const dispatch = useDispatch(); // 추가
+  
+    const handleLike = () => {
+      dispatch(incrementLikes()); // 좋아요 버튼을 누를 때, incrementLikes 액션을 디스패치하여 likes 상태를 증가시킴
+    };
+  
     return (
         <Wrap>
             <ProgressBar />
@@ -50,9 +60,9 @@ function CardInner() {
             {/* 게시글 footer */}
             <Footer>
                 <div className='likes'>
-                    <button>🧡</button>
+                <button onClick={handleLike}>🧡</button>
                     <p>좋았슴</p>
-                    <p>0</p>
+                    <p>{likes}</p> {/* 리덕스 스토어에서 가져온 likes 상태를 출력 */}
                 </div>
                 <div className='share-button'>
                     <button className='facebook'><FaFacebookF /></button>
