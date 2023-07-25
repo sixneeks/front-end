@@ -28,9 +28,6 @@ const Header = () => {
     return () => {document.removeEventListener("mousedown", clickOutside);};
   }, [isSelectOpen]);
 
-
-  console.log("isLogin", isLogin)
-
   return (
     <HeaderWrapper>
       <div className="header-out">
