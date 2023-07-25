@@ -36,17 +36,12 @@ function Login() {
       alert("이메일 형식이 아닙니다.");
       return;
     }
+    
     const loginInformation = {
-      id : email,
+      email : email,
       password : password,
     }
     loginMutation.mutate(loginInformation)
-
-    // const loginInformation = {
-    //   email : email,
-    //   password : password,
-    // }
-    // loginMutation.mutate(loginInformation)
     
   };
 
