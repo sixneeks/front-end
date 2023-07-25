@@ -4,12 +4,21 @@ import { styled } from 'styled-components';
 const ProgressBar = () => {
     const progressBarRef = useRef(null);
     const [progressValue, setProgressValue] = useState(0);
+    const [showProgressBar, setShowProgressBar] = useState(false);
+    const triggerPosition = 410;
 
     const handleScroll = () => {
         const { scrollHeight, clientHeight } = document.documentElement;
         const scrollY = window.scrollY;
         const newProgressValue = (scrollY / (scrollHeight - clientHeight)) * 100;
         setProgressValue(newProgressValue);
+
+        // 사용자가 웹 페이지의 특정 높이에 도달하면 프로그레스 바를 보이게 설정
+        if (scrollY >= triggerPosition) {
+            setShowProgressBar(true);
+        } else {
+            setShowProgressBar(false);
+        }
     }
 
     useEffect(() => {
@@ -22,10 +31,12 @@ const ProgressBar = () => {
 
     return (
         <Wrap ref={progressBarRef}>
-            <Container>
-                <h2>타이틀이 올 곳 입니다.</h2>
-                <Fill progressValue={progressValue}/>
-            </Container>
+            {showProgressBar && (
+                <Container>
+                    <h2>타이틀이 올 곳 입니다.</h2>
+                    <Fill progressValue={progressValue}/>
+                </Container>
+            )}
         </Wrap>
     )
 }
