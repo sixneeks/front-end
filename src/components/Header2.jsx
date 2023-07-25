@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Input from "../components/Input";
-import CheckBox from "./CheckBox";
+import CheckBox from "../components/CheckBox";
 import Button from "./Button";
 import gosumhome3 from "../img/gosumhome3.png";
 
