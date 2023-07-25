@@ -17,12 +17,12 @@ function Main() {
   const [lastArticleId, setLastArticleId] = useState('')
 
 
-// const { isLoading, isError, data } = useQuery("post", () => getTotalPosts(lastArticleId));
+  const { isLoading, isError, data } = useQuery("post", () => getTotalPosts(lastArticleId));
 
 
-const { isLoading, isError, data, fetchNextPage } = useQuery("post", () => getTotalPosts(lastArticleId), {
-  getNextPageParam: (lastPage) => lastPage.nextPage, // API 응답에 다음 페이지의 ID가 있는지 확인합니다.
-});
+// const { isLoading, isError, data, fetchNextPage } = useQuery("post", () => getTotalPosts(lastArticleId), {
+//   getNextPageParam: (lastPage) => lastPage.nextPage, // API 응답에 다음 페이지의 ID가 있는지 확인합니다.
+// });
 
 if (isLoading) {
   return <p>로딩중입니다....!</p>;
@@ -39,10 +39,10 @@ const postdata = data.data
 
 
 const plusPostHandle = (id) =>{
-  if (data && data.nextPage) {
-    fetchNextPage(); // 'fetchNextPage'를 호출하여 다음 페이지의 데이터를 가져옵니다.
+  
+
     setLastArticleId(data.nextPage); // 새로운 페이지의 ID로 'lastArticleId'를 업데이트합니다.
-  }
+  
 }
 
   // 클릭시 스크롤 최상단으로 이동.
