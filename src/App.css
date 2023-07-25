@@ -1,19 +1,14 @@
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 
 /**
- * 1. 기본 글꼴을 sans-serif로 설정.
- * 2. iOS와 IE에서 기기 회전시에 사용자가 확대하지 않아도 글씨 크기가 재조정되는 것을 예방.
- */
+  * 1. 기본 글꼴을 sans-serif로 설정.
+  * 2. iOS와 IE에서 기기 회전시에 사용자가 확대하지 않아도 글씨 크기가 재조정되는 것을 예방.
+  */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
-  html {
-    font-family: sans-serif; /* 1 */
-    -ms-text-size-adjust: 100%; /* 2 */
-    -webkit-text-size-adjust: 100%; /* 2 */
+  * {
+    font-family: 'Noto Sans KR', sans-serif;
   }
-  
-  /**
-   * 기본 마진값을 제거.
-   */
   
   body {
     margin: 0;

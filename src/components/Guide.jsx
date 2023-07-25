@@ -4,18 +4,12 @@ import Arrow from '../img/GuideArrow.png';
 import { Link } from 'react-router-dom'; 
 
 function Guide({ text, to, isHover, onClick }) {
-  // 최상단으로 이동
-  const scrollToTop = () => {
-    window.scrollTo({
-    top: 0,
-    behavior: 'smooth',
-    });
-  }
+
   return (
     <StOutGuide>
       {/* 외부 사이트 링크 */}
       <Link to={to}>
-        <StInGuide isHover={isHover} onClick={onClick}>
+        <StInGuide ishover={isHover} onClick={onClick}>
           <div className='text'>{text}</div>
           <div className='arrow'><img src={Arrow} alt="화살표" /></div>
           {isHover && (
@@ -76,7 +70,7 @@ const StInGuide = styled.div`
     font-size: 50px;
   }
 
-  ${props => props.isHover && `
+  ${props => props.ishover && `
     &:hover .text, &:hover .arrow {
       display: none;
     }
