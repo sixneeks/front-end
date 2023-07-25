@@ -15,57 +15,57 @@ const Category = () => {
           </div>
           <div className="categorylink">
             <span role="img" aria-label="">
-              💰
-            </span>
-            경제
-          </div>
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              🌐
-            </span>
-            세계
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              🤖
-            </span>
-            테크
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              💪
-            </span>
-            노동
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              🌱
-            </span>
-            환경
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              🤝
-            </span>
-            인권
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
               👥
             </span>
             사회
+          </div>
+          <div className="categorylink">
+            <span role="img" aria-label="">
+            💰
+            </span>
+            경제
           </div>{" "}
           <div className="categorylink">
             <span role="img" aria-label="">
-              🎞
+            🌐
+            </span>
+            국제
+          </div>{" "}
+          <div className="categorylink">
+            <span role="img" aria-label="">
+              🎬
             </span>
             문화
+          </div>{" "}
+          <div className="categorylink">
+            <span role="img" aria-label="">
+              ⚽️
+            </span>
+            스포츠
+          </div>{" "}
+          <div className="categorylink">
+            <span role="img" aria-label="">
+              🐶
+            </span>
+            애니멀 피플
+          </div>{" "}
+          <div className="categorylink">
+            <span role="img" aria-label="">
+              🔬
+            </span>
+            미래과학
+          </div>{" "}
+          <div className="categorylink">
+            <span role="img" aria-label="">
+              🌎
+            </span>
+            기후변화&
           </div>
           <div className="categorylink">
             <span role="img" aria-label="">
               🧘
             </span>
-            라이프
+            사설
           </div>
         </div>
       </div>
@@ -101,7 +101,7 @@ const CategoryWrapper = styled.div`
     overflow: overlay;
     font-size: 15px;
     font-weight: 600;
-    gap: 18px;
+    gap: 20px;
   }
   .categorylink {
     display: flex;
