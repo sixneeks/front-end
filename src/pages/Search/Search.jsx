@@ -31,12 +31,14 @@ function Search() {
 export default Search
 
 // Form 관련 Style 
+// 전체영역
 const Wrap = styled.div`
     width: 100vw;
     height: 100vh;
     background-color: #EAE7DE;
 `
 
+// Form 사이즈
 const Form = styled.form`
     max-width: 640px;
     margin: 0 auto;
@@ -44,6 +46,7 @@ const Form = styled.form`
     box-sizing: border-box;
 `
 
+// 검색창 스타일
 const Fieldset = styled.fieldset`
     position: relative;
     margin: 1rem 0;
