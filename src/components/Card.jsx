@@ -1,19 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-function Card({ src, title, date, tag, onClick}) {
 
-
-
-const newDate = date.split(".").join("/")
+function Card({ item }) {
+const navigate = useNavigate();
 
 return (
-<StCardContainer onClick={onClick}>
-{src? <StCardImg src={src} alt={title} />: <></>}
+<StCardContainer onClick={() => {navigate(`/detail/${item.id}`)}}>
+{item.image? <StCardImg src={item.image} alt={item.title} />: <></>}
 
 <Stcontent>
-<StTitle>{title}</StTitle>
-<StDate>{newDate}&nbsp;&nbsp;&nbsp;&nbsp;{tag}</StDate>
+<StTitle>{item.title}</StTitle>
+<StDate>{item.date}&nbsp;&nbsp;&nbsp;&nbsp;{item.tag}</StDate>
 </Stcontent>
 </StCardContainer>
 );

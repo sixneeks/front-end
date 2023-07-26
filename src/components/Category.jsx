@@ -1,75 +1,31 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 const Category = () => {
+  const navigate = useNavigate();
+  const handleNavigate = (url) => {
+    navigate(url);
+    window.location.reload();
+  };
   return (
     <CategoryWrapper>
-      <div className="category-outer">
-        <div className="category-inner">
-          <div className="categorylink">전체</div>
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              ⚖️
-            </span>
-            정치
-          </div>
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              👥
-            </span>
-            사회
-          </div>
-          <div className="categorylink">
-            <span role="img" aria-label="">
-            💰
-            </span>
-            경제
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-            🌐
-            </span>
-            국제
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              🎬
-            </span>
-            문화
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              ⚽️
-            </span>
-            스포츠
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              🐶
-            </span>
-            애니멀 피플
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              🔬
-            </span>
-            미래과학
-          </div>{" "}
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              🌎
-            </span>
-            기후변화&
-          </div>
-          <div className="categorylink">
-            <span role="img" aria-label="">
-              🧘
-            </span>
-            사설
-          </div>
-        </div>
+    <div className="category-outer">
+      <div className="category-inner">
+        <div className="categorylink" onClick={() => handleNavigate(`/`)}>전체</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/정치`)}>⚖️정치</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/사회`)}>👥사회</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/경제`)}>💰경제</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/국제`)}>🌐국제</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/문화`)}>🎬문화</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/스포츠`)}>⚽️스포츠</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/애니멀피플`)}>🐶애니멀 피플</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/미래&과학`)}>🔬미래&과학</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/기후변화`)}>🌎기후변화</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/사설.칼럼`)}>🧘사설.칼럼</div>
       </div>
-    </CategoryWrapper>
+    </div>
+  </CategoryWrapper>
   );
 };
 

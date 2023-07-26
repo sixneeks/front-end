@@ -1,13 +1,11 @@
 export const lightTheme = {
-    bgColor: "#F8F7F4",
+    bgColor: "#eae7de",
     textColor: "#31302E",
-    borderColor: "1px solid #eaeaea",
 };
 
 export const darkTheme = {
-    bgColor: "#1E1E22",
-    textColor: "#ccc",
-    borderColor: "1px solid #2c2d33",
+    bgColor: "#151821", //
+    textColor: "#ffffff", // 텍스트 색상
 };
 
 export const theme = {

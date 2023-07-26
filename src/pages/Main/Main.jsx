@@ -14,8 +14,9 @@ import  { getTotalPosts } from "../../axios/api";
 import Spinner from "../../components/Spinner";
 import { useNavigate } from "react-router-dom";
 
+
+
 function Main() {
-  const navigate = useNavigate();
   // const queryClient = useQueryClient();
 const [pluspage, setPluspage] = useState(1)
 const scrollPositionRef = useRef(0);
@@ -41,19 +42,12 @@ if (isError) {
   return <p>오류가 발생하였습니다...!</p>;
 }
 
-
-
 const postdata = data.data
-console.log("postdata", postdata)
 const plusPostHandle = () => {
   const newPluspage = pluspage + 1; // lastArticleId에 1을 더한 새로운 값을 생성합니다.
   setPluspage(newPluspage); // 새로운 값을 'lastArticleId'로 업데이트합니다.
   scrollPositionRef.current = window.scrollY;
 }
-
-
-
-
 
   // 클릭시 스크롤 최상단으로 이동.
   const scrollToTop = () => {
@@ -63,8 +57,6 @@ const plusPostHandle = () => {
     });
   }
 
-  
-  // 
 
   return (
     <StMainContainer>
@@ -76,7 +68,9 @@ const plusPostHandle = () => {
 
       <StCardContainer>
         {postdata.map((item)=>(
-          <Card key={item.id} src={item.image} title={item.title} date={item.date} tag={item.tag} onClick={() => {navigate(`/detail/${item.id}`)}} />
+
+          <Card key={item.id} item={item} />
+
           ))}
         
       </StCardContainer>
