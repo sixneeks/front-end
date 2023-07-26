@@ -35,9 +35,9 @@ const Header = () => {
           <img src={logo} alt="헤더 이미지" onClick={() => {navigate("/");}} />
           <div className="box1" onClick={() => {navigate("/search");}}>🔍</div>
           {isLogin?
-          <div className="box2" onClick={handleBox2Click}>
+          <div className="box2" onClick={handleBox2Click}><Sticon>🦔</Sticon>
             <div ref={node}><Select ref={node} position="relative" isSelectOpen={isSelectOpen}/></div>
-            🦔
+            
           </div>
           :
           <div className="box2" onClick={() => {navigate("/login");}}>
@@ -124,4 +124,8 @@ const HeaderWrapper = styled.header`
     cursor: pointer;
   }
 `;
+
+const Sticon = styled.div`
+position : absolute
+`
 
