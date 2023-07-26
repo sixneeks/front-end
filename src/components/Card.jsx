@@ -1,14 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
 
-function Card({ src, title, date, tag }) {
+function Card({ src, title, date, tag, onClick}) {
 
 
 
 const newDate = date.split(".").join("/")
 
 return (
-<StCardContainer>
+<StCardContainer onClick={onClick}>
 {src? <StCardImg src={src} alt={title} />: <></>}
 
 <Stcontent>

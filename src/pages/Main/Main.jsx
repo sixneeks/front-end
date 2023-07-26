@@ -12,9 +12,10 @@ import Button from "../../components/Button";
 import { useQuery} from "react-query";
 import  { getTotalPosts } from "../../axios/api";
 import Spinner from "../../components/Spinner";
+import { useNavigate } from "react-router-dom";
 
 function Main() {
-
+  const navigate = useNavigate();
   // const queryClient = useQueryClient();
 const [pluspage, setPluspage] = useState(1)
 const scrollPositionRef = useRef(0);
@@ -63,6 +64,7 @@ const plusPostHandle = () => {
   }
 
   
+  // 
 
   return (
     <StMainContainer>
@@ -74,8 +76,7 @@ const plusPostHandle = () => {
 
       <StCardContainer>
         {postdata.map((item)=>(
-          <Card key={item.id} src={item.image} title={item.title} date={item.date} tag={item.tag} />
-
+          <Card key={item.id} src={item.image} title={item.title} date={item.date} tag={item.tag} onClick={() => {navigate(`/detail/${item.id}`)}} />
           ))}
         
       </StCardContainer>
