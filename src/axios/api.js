@@ -97,7 +97,12 @@ const like = async (id) => {
   return response.data;
 }
 
-
+// 읽었음
+const read = async (id) => {
+  const response = await instance.post(`/api/articles/${id}/check`)
+  console.log("읽었다!", response)
+  return response.data;
+}
 
 
 // `/api/members/login`  로그인
@@ -111,4 +116,4 @@ const like = async (id) => {
 //   console.log("process.env.REACT_APP_SERVER_URL", process.env)
 //   await axios.post(`${process.env.REACT_APP_SERVER_URL}/register`, newUser);
 // }
-export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts, getDetailPosts, like}
+export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts, getDetailPosts, like, read}

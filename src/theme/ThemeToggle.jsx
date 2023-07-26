@@ -2,10 +2,17 @@ import React from 'react'
 import { styled } from 'styled-components'
 import { BiSolidMoon } from "react-icons/bi";
 import { BsFillSunFill } from "react-icons/bs";
+import { useTheme } from '../hooks/ThemeProvider';
 
-function Theme({ toggle, mode }) {
+function Theme({ mode }) {
+  const [themeMode, toggleTheme] = useTheme();
+
+  const handleToggle = () => {
+    toggleTheme(); // toggle 함수를 호출하여 테마 변경
+  };
+  
   return (
-    <Wrap onClick={toggle} mode={mode}>
+    <Wrap onClick={handleToggle} mode={mode}>
       {mode === "dark" ? (
         <BiSolidMoon size="27" />
       ) : (

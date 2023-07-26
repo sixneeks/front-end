@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { styled } from 'styled-components';
 
-const ProgressBar = () => {
+const ProgressBar = ({title}) => {
     const progressBarRef = useRef(null);
     const [progressValue, setProgressValue] = useState(0);
     const [showProgressBar, setShowProgressBar] = useState(false);
@@ -33,7 +33,7 @@ const ProgressBar = () => {
         <Wrap ref={progressBarRef}>
             {showProgressBar && (
                 <Container>
-                    <h2>타이틀이 올 곳 입니다.</h2>
+                    <h2>{title}</h2>
                     <Fill progressValue={progressValue}/>
                 </Container>
             )}
