@@ -9,23 +9,35 @@ import { GlobalStyle } from '../../theme/GlobalStyles';
 import { useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getDetailPosts } from '../../axios/api'
+import Spinner from "../../components/Spinner";
 
 function Detail() {
   const { id } = useParams();
-  const { data: detailData, isLoading, isError } = useQuery(['detailPosts', id], () => getDetailPosts(id));
+  const { data: detailData, isLoading, isError } = useQuery('detailPosts', () => getDetailPosts(id));
+
+  if (isLoading) {
+  
+    return <Spinner/>
+  }
+  
+  if (isError) {
+    return <p>오류가 발생하였습니다...!</p>;
+  }
+
+  console.log("detailData", detailData)
+
+
+
+
+
+
 
   return (
     <ThemeProvider>
       <GlobalStyle />
       <Wrap>
         <Header />
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : isError ? (
-          <div>데이터를 가져오는 중 오류가 발생했습니다.</div>
-        ) : (
-          detailData && <CardInner data={detailData} />
-        )}
+        <CardInner data={detailData} />
         <Footer />
         <ThemeToggle />
       </Wrap>

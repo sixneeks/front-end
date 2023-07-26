@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { styled } from 'styled-components';
 import { logOut } from '../redux/modules/loginSlice';
+import { logout } from '../axios/api';
 
 function Select({position, isSelectOpen}) {
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ function Select({position, isSelectOpen}) {
 
   const selectList = ['마이페이지', '주문내역', '프로필 설정', '고객센터','로그아웃'];
   
-  const logoutMutation = useMutation({
+  const logoutMutation = useMutation(logout, {
     onSuccess: () => {
       console.log("로그아웃 성공");
       dispatch(logOut())

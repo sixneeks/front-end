@@ -4,15 +4,26 @@ import { styled } from 'styled-components'
 import ProgressBar from './ProgressBar';
 import { useSelector, useDispatch } from 'react-redux'; // 추가
 import { incrementLikes } from '../redux/modules/likeSlice';
+import { useMutation, useQueryClient } from 'react-query';
+import { like } from '../axios/api';
+
 
 function CardInner({data}) {
-    const likes = useSelector((state) => state.like.likes); // 추가
-    const dispatch = useDispatch(); // 추가
-  
+    const { id, tag, title, date, image, content, likeCheck, likesCount} = data.data;
+
+    const queryClient = useQueryClient();
+
+    const likesMutation = useMutation(like, {
+        onSuccess: () => {
+            queryClient.invalidateQueries('detailPosts');
+        }}
+    )
+
+    console.log("likeCheck", likeCheck)
     const handleLike = () => {
-      dispatch(incrementLikes()); // 좋아요 버튼을 누를 때, incrementLikes 액션을 디스패치하여 likes 상태를 증가시킴
+        likesMutation.mutate(id)
     };
-    const { tag, title, date, image, content, likesCount} = data.data;
+    
 
     return (
         <Wrap>
@@ -34,9 +45,9 @@ function CardInner({data}) {
             <Footer>
                 <div className='likes'>
                 <button onClick={handleLike}>🧡</button>
-                    <p>좋았슴</p>
 
-                    <p>{likes}</p> {/* 리덕스 스토어에서 가져온 likes 상태를 출력 */}
+                <LikedText likeCheck={likeCheck}>좋았슴</LikedText>
+                <LikedText likeCheck={likeCheck}>{likesCount}</LikedText>
 
                 </div>
                 <div className='share-button'>
@@ -59,6 +70,9 @@ function CardInner({data}) {
 
 export default CardInner
 
+const LikedText = styled.p`
+color: ${(props) => (props.likeCheck ? '#ff6B00' : 'black')};
+`
 const Wrap = styled.div`
     background-color: #eae7de;
 `
@@ -164,6 +178,8 @@ const Footer = styled.div`
             background: none;
         }
     }
+   
+        
 
     .share-button {
         display: flex;
