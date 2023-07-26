@@ -9,10 +9,10 @@ const My = () => {
         <Stouter>
           <Sthistory>반가워 죽겠슴,</Sthistory>
           <Sthistory2>
-            이름 <span>💖</span> 뉴니커!
+            <p>이름</p> <span>💖</span> 뉴니커!
           </Sthistory2>
           <Stmail>메일주소</Stmail>
-          <Stprofile to="/">프로필 설정하기</Stprofile>
+          <Stprofile to="/profilesetting">프로필 설정하기</Stprofile>
         </Stouter>
 
         <Stbuttons>
