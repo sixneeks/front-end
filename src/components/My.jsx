@@ -1,8 +1,26 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getMyPage } from "../axios/api";
+import Spinner from "./Spinner";
 
 const My = () => {
+
+//   const { isLoading, isError, data } = useQuery("MyPage", getMyPage);
+
+//   if (isLoading) {
+  
+//     return <Spinner/>
+//   }
+  
+//   if (isError) {
+//     return <p>오류가 발생하였습니다...!</p>;
+//   }
+
+// console.log("mypagedata", data)
+
+
   return (
     <>
       <Stall>

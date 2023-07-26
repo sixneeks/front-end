@@ -33,6 +33,15 @@ instance.interceptors.response.use(
   },
   function (error) {
     console.log("인터셉트 응답 못받았어요...ㅠㅠ");
+    if(error.response.status === 400){
+      const token = error.response.headers.authorization
+      localStorage.setItem('token', token);
+    } 
+    
+    if(error.response.status === 401){
+      localStorage.removeItem("token");
+      window.location.reload();
+    }
     return Promise.reject(error);
   }
 );
@@ -103,16 +112,19 @@ const read = async (id) => {
   return response.data;
 }
 
+// 마이페이지 간략 정보 조회
+const getMyPage = async () => {
+  const response = await instance.get(`/api/members/profile`);
+  // console.log("마이페이지 간략 정보 조회", response)
+  return response.data;
+}
 
-// `/api/members/login`  로그인
-// `/api/members/signup`  회원가입
-// `/api/members/logout`  로그아웃
+// 검색정보 조회
+const getSearchPost = async (search) => {
+  const response = await instance.get(`/api/articles/search?keyword=${search}`);
+  // console.log("검색정보 조회", response)
+  return response.data;
+}
 
 
-
-// 예시사이트 확인용
-// const addUsers = async (newUser) => {
-//   console.log("process.env.REACT_APP_SERVER_URL", process.env)
-//   await axios.post(`${process.env.REACT_APP_SERVER_URL}/register`, newUser);
-// }
-export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts, getDetailPosts, like, read}
+export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts, getDetailPosts, like, read, getMyPage, getSearchPost}
