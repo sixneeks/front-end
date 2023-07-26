@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
@@ -6,20 +6,31 @@ import { getMyPage } from "../axios/api";
 import Spinner from "./Spinner";
 
 const My = () => {
+  const { isLoading, isError, data } = useQuery("MyPage", getMyPage);
 
-//   const { isLoading, isError, data } = useQuery("MyPage", getMyPage);
+  // 사용자 정보를 상태로 관리하기 위해 useState 훅 사용
+  const [nickname, setNickname] = useState("");
+  const [email, setEmail] = useState("");
+  const [readedCount, setReadedCount] = useState(0);
+  const [likesCount, setLikesCount] = useState(0);
 
-//   if (isLoading) {
-  
-//     return <Spinner/>
-//   }
-  
-//   if (isError) {
-//     return <p>오류가 발생하였습니다...!</p>;
-//   }
+  if (isLoading) {
+    return <Spinner />;
+  }
 
-// console.log("mypagedata", data)
+  if (isError) {
+    return <p>오류가 발생하였습니다...!</p>;
+  }
 
+  // 데이터가 유효하다면 사용자 정보를 상태에 저장
+  if (data) {
+    setNickname(data.nickname);
+    setEmail(data.email);
+    setReadedCount(data.readedCount);
+    setLikesCount(data.likesCount);
+  }
+
+  console.log("mypagedata", data);
 
   return (
     <>
@@ -27,18 +38,18 @@ const My = () => {
         <Stouter>
           <Sthistory>반가워 죽겠슴,</Sthistory>
           <Sthistory2>
-            <p>이름</p> <span>💖</span> 뉴니커!
+            <p>{nickname}</p> <span>💖</span> 뉴니커!
           </Sthistory2>
-          <Stmail>메일주소</Stmail>
+          <Stmail>{email}</Stmail>
           <Stprofile to="/profilesetting">프로필 설정하기</Stprofile>
         </Stouter>
 
         <Stbuttons>
           <Stbutton1 to="/">
-            📙 끝까지 읽었슴<Stnum>7</Stnum>
+            📙 끝까지 읽었슴<Stnum>{readedCount}</Stnum>
           </Stbutton1>
           <Stbutton2 to="/">
-            🧡 좋았슴<Stnum>2</Stnum>
+            🧡 좋았슴<Stnum>{likesCount}</Stnum>
           </Stbutton2>
           <Stbutton3 to="/">
             💸 주문내역<Stnum>0</Stnum>
@@ -79,16 +90,16 @@ const Stprofile = styled(Link)`
   text-decoration: underline;
   margin-top: 30px;
   &:hover {
-    color: #ff6b00; /* 원하는 다른 색상으로 변경하십시오. */
-    cursor: pointer; /* 커서 모양을 포인터로 변경합니다. */
+    color: #ff6b00;
+    cursor: pointer;
   }
 `;
 const Stbuttons = styled.div`
   margin-top: 60px;
-  width: 80vw; /* 화면 너비의 80%로 설정합니다. */
+  width: 80vw;
 
   @media (min-width: 1400px) {
-    width: 1400px; /* 화면 너비가 1200px 이상일 때는 최대 너비를 1200px로 설정합니다. */
+    width: 1400px;
     height: 500px;
     font-size: 100%;
   }
@@ -107,7 +118,7 @@ const Stbutton1 = styled(Link)`
   justify-content: space-between;
   &:hover {
     background-color: #051619;
-    color: white; /* 버튼 텍스트의 색상을 변경합니다. */
+    color: white;
     cursor: pointer;
   }
 `;
@@ -123,8 +134,8 @@ const Stbutton2 = styled(Link)`
   justify-content: space-between;
   &:hover {
     background-color: #051619;
-    color: white; /* 원하는 다른 색상으로 변경하십시오. */
-    cursor: pointer; /* 커서 모양을 포인터로 변경합니다. */
+    color: white;
+    cursor: pointer;
   }
 `;
 const Stbutton3 = styled(Link)`
@@ -139,8 +150,8 @@ const Stbutton3 = styled(Link)`
   justify-content: space-between;
   &:hover {
     background-color: #051619;
-    color: white; /* 원하는 다른 색상으로 변경하십시오. */
-    cursor: pointer; /* 커서 모양을 포인터로 변경합니다. */
+    color: white;
+    cursor: pointer;
   }
 `;
 const Stnum = styled.div`
