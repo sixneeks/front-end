@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { useQuery } from "react-query";
@@ -8,11 +8,21 @@ import Spinner from "./Spinner";
 const My = () => {
   const { isLoading, isError, data } = useQuery("MyPage", getMyPage);
 
-  // 사용자 정보를 상태로 관리하기 위해 useState 훅 사용
+  // 사용자 정보를 상태로 관리하기 위해 useState 훅.
   const [nickname, setNickname] = useState("");
   const [email, setEmail] = useState("");
   const [readedCount, setReadedCount] = useState(0);
   const [likesCount, setLikesCount] = useState(0);
+
+  // 데이터가 유효한 경우에만 상태를 업데이트하도록 useEffect를 사용하여 처리
+  useEffect(() => {
+    if (data) {
+      setNickname(data.nickname);
+      setEmail(data.email);
+      setReadedCount(data.readedCount);
+      setLikesCount(data.likesCount);
+    }
+  }, [data]);
 
   if (isLoading) {
     return <Spinner />;
@@ -20,14 +30,6 @@ const My = () => {
 
   if (isError) {
     return <p>오류가 발생하였습니다...!</p>;
-  }
-
-  // 데이터가 유효하다면 사용자 정보를 상태에 저장
-  if (data) {
-    setNickname(data.nickname);
-    setEmail(data.email);
-    setReadedCount(data.readedCount);
-    setLikesCount(data.likesCount);
   }
 
   console.log("mypagedata", data);
@@ -38,7 +40,7 @@ const My = () => {
         <Stouter>
           <Sthistory>반가워 죽겠슴,</Sthistory>
           <Sthistory2>
-            <p>{nickname}</p> <span>💖</span> 뉴니커!
+            {nickname} <span>🦔</span> 뉴니커!
           </Sthistory2>
           <Stmail>{email}</Stmail>
           <Stprofile to="/profilesetting">프로필 설정하기</Stprofile>
@@ -112,7 +114,7 @@ const Stbutton1 = styled(Link)`
   margin-top: -1px;
   height: 80px;
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 500;
   padding-left: 2%;
 
   justify-content: space-between;
@@ -129,7 +131,7 @@ const Stbutton2 = styled(Link)`
   margin-top: -1px;
   height: 80px;
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 500;
   padding-left: 2%;
   justify-content: space-between;
   &:hover {
@@ -145,7 +147,7 @@ const Stbutton3 = styled(Link)`
   margin-top: -1px;
   height: 80px;
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 500;
   padding-left: 2%;
   justify-content: space-between;
   &:hover {
