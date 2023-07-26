@@ -36,8 +36,7 @@ instance.interceptors.response.use(
     if(error.response.status === 400){
       const token = error.response.headers.authorization
       localStorage.setItem('token', token);
-    } 
-    
+    }
     if(error.response.status === 401){
       localStorage.removeItem("token");
       window.location.reload();

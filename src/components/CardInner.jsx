@@ -2,13 +2,12 @@ import React from 'react'
 import { FaFacebookF, FaTwitter } from "react-icons/fa";
 import { styled } from 'styled-components'
 import ProgressBar from './ProgressBar';
-import { useSelector, useDispatch } from 'react-redux'; // 추가
-import { incrementLikes } from '../redux/modules/likeSlice';
 import { useMutation, useQueryClient } from 'react-query';
 import { like } from '../axios/api';
 
 
 function CardInner({data}) {
+    // Props 로 Detail 에서 데이터 받아옴.
     const { id, tag, title, date, image, content, likeCheck, likesCount} = data.data;
 
     const queryClient = useQueryClient();
@@ -18,8 +17,6 @@ function CardInner({data}) {
             queryClient.invalidateQueries('detailPosts');
         }}
     )
-
-    console.log("likeCheck", likeCheck)
     const handleLike = () => {
         likesMutation.mutate(id)
     };
