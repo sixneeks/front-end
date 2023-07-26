@@ -9,6 +9,7 @@ import Tag from "../pages/Tag/Tag";
 import ProfileSetting from "../pages/ProfileSetting/ProfileSetting";
 import Search from "../pages/Search/Search";
 import { QueryClient, QueryClientProvider } from "react-query";
+import Result from "../pages/Result/Result";
 
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const Router = () => {
                     <Route path="/mypage" element={<MyPage />} />
                     <Route path="/profilesetting" element={<ProfileSetting />} />
                     <Route path="/search" element={<Search />} />
+                    <Route path="/result/:id" element={<Result />} />
 
                 </Routes>
             </BrowserRouter>

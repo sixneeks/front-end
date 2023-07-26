@@ -2,27 +2,30 @@ import React from 'react'
 import { styled } from 'styled-components'
 import { FaArrowLeftLong } from 'react-icons/fa6';
 import { Link } from 'react-router-dom'
+import useInput from '../../hooks/useInput';
 
 function Search() {
+
+    const [search, onChangeSearchHandler] = useInput();
     return (
         <Wrap>
             {/* 입력창 */}
             <Form>
                 <Fieldset>
                     <button><FaArrowLeftLong /></button>
-                    <input type='search' placeholder='고슴아 이게 궁금해. (인물, 이슈)' />
+                    <input type='search' placeholder='고슴아 이게 궁금해. (인물, 이슈)' value={search} onChange={onChangeSearchHandler}/>
                 </Fieldset>
             </Form>
 
             {/* 추천 키워드 */}
             <Section>
                 <h2>고슴이의 추천 키워드</h2>
-                <Link>한미정상회담</Link>
-                <Link>간호법</Link>
-                <Link>부동산</Link>
-                <Link>수단</Link>
-                <Link>TV 수신료</Link>
-                <Link>반도체</Link>
+                <Link to="/result/한미정상회담">한미정상회담</Link>
+                <Link to="/result/간호법">간호법</Link>
+                <Link to="/result/부동산">부동산</Link>
+                <Link to="/result/수단">수단</Link>
+                <Link to="/result/TV수신료">TV 수신료</Link>
+                <Link to="/result/반도체">반도체</Link>
             </Section>
         </Wrap>
     )
