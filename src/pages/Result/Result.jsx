@@ -26,7 +26,7 @@ function Result() {
       }
 
     console.log("searchPost", data)
-
+    const getSearchData = data.data
     const goMain = () => {
         navigate('/')
     }
@@ -34,12 +34,16 @@ function Result() {
     <StResultContainer>
         <Header />
         <StTitleContainer>
-        <StSearchTitle>{}의 검색결과예요.</StSearchTitle>
-        <StSearchResult>🦔고슴이: {}개 찾았슴!</StSearchResult>
+        <StSearchTitle><StSearch>{param.id}</StSearch>의 검색결과예요.</StSearchTitle>
+        <StSearchResult>🦔고슴이: {getSearchData.length}개 찾았슴!</StSearchResult>
         <StButton>최신순</StButton>
         </StTitleContainer>
         <StCardContainer>
-        {/* <SearchCard /> */}
+        {getSearchData.map((item)=>(
+            <SearchCard key={item.id} item={item}/>
+        ))}
+
+        
 
 
 
@@ -66,7 +70,15 @@ const StSearchTitle = styled.div`
     width: 100%;
     font-size: 25px;
     font-weight: bold;
+    display:flex;
+    flex-direction: row;
 `
+
+const StSearch = styled.div`
+    color : #999999;
+`
+
+
 
 const StSearchResult = styled.div`
     width: 100%;
@@ -79,7 +91,7 @@ const StButton = styled.button`
     background: #051619;
     color: #fff;
     font-weight: 700;
-    margin: 0 auto 0;
+    margin: 0 auto;
     cursor: pointer;
     margin: 2rem 0 1rem;
     font-size: 14px;
@@ -90,7 +102,7 @@ const StCardContainer = styled.div`
     border-width: 1px 0px 0px 1px;
     width: 90%;
     max-width: 1360px;
-    margin: 0 auto;
+    margin: 0 auto 125px;
     display: flex;
     flex-wrap: wrap;
 `
