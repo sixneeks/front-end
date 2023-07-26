@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Banner from "../../components/Banner";
 import Header from "../../components/Header";
 import Header2 from "../../components/Header2";
@@ -9,21 +9,31 @@ import Footer from "../../components/Footer";
 import { styled } from "styled-components";
 import Card from "../../components/Card";
 import Button from "../../components/Button";
-import { useQuery, useQueryClient } from "react-query";
-import { getTotalPosts } from "../../axios/api";
+import { useQuery} from "react-query";
+import  { getTotalPosts } from "../../axios/api";
 import Spinner from "../../components/Spinner";
+import { useNavigate } from "react-router-dom";
 
 function Main() {
-const queryClient = useQueryClient();
+  const navigate = useNavigate();
+  // const queryClient = useQueryClient();
+const [pluspage, setPluspage] = useState(1)
+const scrollPositionRef = useRef(0);
 
-const [lastArticleId, setLastArticleId] = useState('')
-console.log("lastArticleId", lastArticleId)
+const { isLoading, isError, data } = useQuery(["post", pluspage], () => getTotalPosts(pluspage));
 
-const { isLoading, isError, data } = useQuery("post", () => getTotalPosts(lastArticleId));
-
+useEffect(() => {
+  // 데이터가 로드된 후 저장한 스크롤 위치로 스크롤합니다.
+  if (data) {
+    window.scrollTo({
+      top: scrollPositionRef.current,
+      behavior: "auto",
+    });
+  }
+}, [data]);
 
 if (isLoading) {
-  queryClient.invalidateQueries("post")
+  
   return <Spinner/>
 }
 
@@ -31,13 +41,19 @@ if (isError) {
   return <p>오류가 발생하였습니다...!</p>;
 }
 
-console.log(data)
+
+
 const postdata = data.data
-
-
-const plusPostHandle = (id) =>{
-      setLastArticleId(id); // 새로운 페이지의 ID로 'lastArticleId'를 업데이트합니다.
+console.log("postdata", postdata)
+const plusPostHandle = () => {
+  const newPluspage = pluspage + 1; // lastArticleId에 1을 더한 새로운 값을 생성합니다.
+  setPluspage(newPluspage); // 새로운 값을 'lastArticleId'로 업데이트합니다.
+  scrollPositionRef.current = window.scrollY;
 }
+
+
+
+
 
   // 클릭시 스크롤 최상단으로 이동.
   const scrollToTop = () => {
@@ -46,6 +62,10 @@ const plusPostHandle = (id) =>{
     behavior: 'smooth',
     });
   }
+
+  
+  // 
+
   return (
     <StMainContainer>
       
@@ -56,13 +76,12 @@ const plusPostHandle = (id) =>{
 
       <StCardContainer>
         {postdata.map((item)=>(
-          <Card key={item.id} src={item.image} title={item.title} date={item.date} tag={item.tag} />
-
+          <Card key={item.id} src={item.image} title={item.title} date={item.date} tag={item.tag} onClick={() => {navigate(`/detail/${item.id}`)}} />
           ))}
         
       </StCardContainer>
       <StButtonContainer>
-        <Button name={"더보기"} colorSet={"더보기"} onClick={() => plusPostHandle(postdata[postdata.length-1].id)}/>
+        <Button name={"더보기"} colorSet={"더보기"} onClick={plusPostHandle}/>
       </StButtonContainer>
       <UnderBanner />
       <Guide text={`퀴어 프렌들리한 팀을 위한 뉴닉 레인보우 가이드 🏳️‍🌈`} to={`https://www.notion.so/11e07b3b430a42a9ac8ed26893029e56`}/>
