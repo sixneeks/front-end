@@ -22,7 +22,7 @@ export default SearchCard;
 
 const StCardImg = styled.img`
 width: 100%;
-aspect-ratio: 1/0.75;
+aspect-ratio: 1/0.7;
 filter: grayscale(100%);
 
 `;
@@ -49,7 +49,7 @@ const StCardContainer = styled.div`
 `;
 
 const Stcontent = styled.div`
-    padding: 17px;
+    padding: 12px 15px;
 `
 
 const StTitle = styled.div`

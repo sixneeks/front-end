@@ -1,19 +1,37 @@
 import React from 'react'
 import { styled } from 'styled-components'
 import { FaArrowLeftLong } from 'react-icons/fa6';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import useInput from '../../hooks/useInput';
 
 function Search() {
+    const navigate = useNavigate();
 
     const [search, onChangeSearchHandler] = useInput();
+
+    const goResult = (searchValue) =>{
+        if(searchValue){
+            navigate(`/result/${searchValue}`)
+        }else{
+            alert("검색값을 입력해주세요.")
+        }
+        
+    }
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            goResult(search);
+        }
+    };
+
+
     return (
         <Wrap>
             {/* 입력창 */}
             <Form>
                 <Fieldset>
                     <button><FaArrowLeftLong /></button>
-                    <input type='search' placeholder='고슴아 이게 궁금해. (인물, 이슈)' value={search} onChange={onChangeSearchHandler}/>
+                    <input type='search' placeholder='고슴아 이게 궁금해. (인물, 이슈)' value={search} onChange={onChangeSearchHandler} onKeyPress={handleKeyPress}/>
                 </Fieldset>
             </Form>
 
