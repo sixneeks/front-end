@@ -5,6 +5,7 @@ import ProgressBar from './ProgressBar';
 import { useSelector, useDispatch } from 'react-redux'; // 추가
 import { incrementLikes } from '../redux/modules/likeSlice';
 
+
 function CardInner() {
 
     const likes = useSelector((state) => state.like.likes); // 추가
