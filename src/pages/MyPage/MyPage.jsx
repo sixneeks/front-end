@@ -1,7 +1,5 @@
 import React from "react";
 import Header from "../../components/Header";
-import Category from "../../components/Category";
-import UnderBanner from "../../components/UnderBanner";
 import Guide from "../../components/Guide";
 import Footer from "../../components/Footer";
 import My from "../../components/My";

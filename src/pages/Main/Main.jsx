@@ -12,7 +12,6 @@ import Button from "../../components/Button";
 import { useQuery} from "react-query";
 import  { getTotalPosts } from "../../axios/api";
 import Spinner from "../../components/Spinner";
-import { useNavigate } from "react-router-dom";
 
 
 
