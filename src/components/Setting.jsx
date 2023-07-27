@@ -17,7 +17,7 @@ const Setting = () => {
 
   const logoutMutation = useMutation(logout, {
     onSuccess: () => {
-      console.log("로그아웃 성공");
+      alert("로그아웃 했슴!");
       dispatch(logOut())
       navigate('/')
     }
@@ -25,7 +25,7 @@ const Setting = () => {
 
   const deleteUserMutation = useMutation(deleteUsers, {
     onSuccess: () => {
-      console.log("탈퇴되었습니다.");
+      alert("계정을 삭제 했슴!");
       dispatch(logOut())
       navigate('/')
     }
@@ -48,7 +48,13 @@ const Setting = () => {
   }
 
   const deleteUser = () => {
-    deleteUserMutation.mutate()
+    if (window.confirm("정말 삭제하겠슴?")) {
+      deleteUserMutation.mutate()
+      
+    } else {
+      alert("취소했슴!");
+    }
+    
   }
 
   return (

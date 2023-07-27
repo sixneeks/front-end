@@ -20,7 +20,7 @@ function Login() {
 
   const loginMutation = useMutation(login, {
     onSuccess: () => {
-      console.log("로그인 성공");
+      alert("로그인 했슴!");
       dispatch(logIn())
       navigate('/')
     }

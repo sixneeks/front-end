@@ -19,6 +19,7 @@ function SignUp() {
 
   const addNewUserMutation = useMutation(addUsers, {
     onSuccess: () => {
+      alert("회원가입 했슴!");
       navigate('/login')
     }
   });
