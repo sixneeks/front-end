@@ -87,7 +87,7 @@ const titleName = (id) => {
         <Button name={"더보기"} colorSet={"더보기"} onClick={plusTagPostHandle}/>
       </StButtonContainer>
       <UnderBanner />
-      <Guide />
+      <Guide text={`오늘까지 588회 뉴스레터를 발행했고 557,579명이 구독했어요!`} isHover={true} to="/"/>
       <Footer />
     </StTagContainer>
   )
