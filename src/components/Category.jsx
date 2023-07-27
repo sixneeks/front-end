@@ -22,7 +22,7 @@ const Category = () => {
         <div className="categorylink" onClick={() => handleNavigate(`/tag/애니멀피플`)}>🐶애니멀 피플</div>
         <div className="categorylink" onClick={() => handleNavigate(`/tag/미래&과학`)}>🔬미래&과학</div>
         <div className="categorylink" onClick={() => handleNavigate(`/tag/기후변화`)}>🌎기후변화</div>
-        <div className="categorylink" onClick={() => handleNavigate(`/tag/사설.칼럼`)}>🧘사설.칼럼</div>
+        <div className="categorylink" onClick={() => handleNavigate(`/tag/사설.칼럼`)}>🧘사설·칼럼</div>
       </div>
     </div>
   </CategoryWrapper>

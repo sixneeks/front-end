@@ -15,7 +15,7 @@ function Select({position, isSelectOpen}) {
   
   const logoutMutation = useMutation(logout, {
     onSuccess: () => {
-      console.log("로그아웃 성공");
+      alert("로그아웃 했슴!");
       dispatch(logOut())
       navigate('/')
     }

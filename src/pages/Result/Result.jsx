@@ -2,7 +2,7 @@ import React from 'react'
 import { styled } from 'styled-components'
 import Header from '../../components/Header'
 import SearchCard from '../../components/SearchCard'
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import Guide from '../../components/Guide';
 import Footer from '../../components/Footer';
 import { useQuery } from 'react-query';
@@ -10,7 +10,6 @@ import Spinner from '../../components/Spinner';
 import { getSearchPost } from '../../axios/api';
 
 function Result() {
-    const navigate = useNavigate();
     const param = useParams();
 
     
