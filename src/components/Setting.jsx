@@ -2,15 +2,18 @@ import React from "react";
 import styled from "styled-components";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useMutation } from "react-query";
+import { useMutation, useQuery } from "react-query";
 import { logOut } from '../redux/modules/loginSlice';
-import { deleteUsers, logout } from '../axios/api';
+import { deleteUsers, getprofilesetting, logout } from '../axios/api';
+import Spinner from "./Spinner";
 
 
 const Setting = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  const { isLoading, isError, data } = useQuery("profilesetting", getprofilesetting);
 
   const logoutMutation = useMutation(logout, {
     onSuccess: () => {
@@ -27,7 +30,19 @@ const Setting = () => {
       navigate('/')
     }
   });
+    if (isLoading) {
+  
+        return <Spinner/>
+      }
+      
+      if (isError) {
+        return <p>오류가 발생하였습니다...!</p>;
+      }
 
+      
+
+    const profilesettingData = data
+   
   const logoutUser = () => {
     logoutMutation.mutate()
   }
@@ -48,25 +63,29 @@ const Setting = () => {
         </Stouter>
 
         <Stbuttons>
-          <Stbutton to="/">
+          <Stbutton>
             <Stbox>닉네임</Stbox>
-            <Stnum>고슴슴</Stnum>
+            <Stnum>{profilesettingData.nickname}</Stnum>
           </Stbutton>
-          <Stbutton to="/">
+          <Stbutton>
             <Stbox>출생년도</Stbox>
-            <Stnum>23년</Stnum>
+            <Stnum>{profilesettingData.birth}</Stnum>
           </Stbutton>
-          <Stbutton to="/">
+          <Stbutton>
             <Stbox>성별</Stbox>
-            <Stnum>고슴</Stnum>
+            <Stnum>{profilesettingData.gender}</Stnum>
           </Stbutton>
-          <Stbutton to="/">
+          <Stbutton>
             <Stbox>배송지</Stbox>
             <Stnum>어디게?</Stnum>
           </Stbutton>
-          <Stbutton to="/">
+          <Stbutton>
             <Stbox>이모지</Stbox>
-            <Stnum>🦔</Stnum>
+            <Stnum>{profilesettingData.emoji}</Stnum>
+          </Stbutton>
+          <Stbutton>
+            <Stbox>이메일</Stbox>
+            <Stnum>{profilesettingData.email}</Stnum>
           </Stbutton>
         </Stbuttons>
         <StContainer>
@@ -112,6 +131,7 @@ const Stbuttons = styled.div`
 `;
 const Stbox = styled.div`
   width: 70px;
+  margin-right : 100px;
 
 `;
 
@@ -131,7 +151,7 @@ const Stnum = styled.div`
   display: flex;
   font-size: 14px;
   font-weight: 400;
-  margin-right: 80%;
+  margin-right: auto;
 `;
 
 const StLogoutButton = styled.div`

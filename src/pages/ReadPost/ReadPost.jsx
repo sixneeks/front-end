@@ -3,36 +3,39 @@ import { styled } from 'styled-components'
 import Header from '../../components/Header'
 import Guide from '../../components/Guide';
 import Footer from '../../components/Footer';
-import { useNavigate } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import { getReadPost } from '../../axios/api';
+import Spinner from "../../components/Spinner";
+import SearchCard from "../../components/SearchCard"
+
 
 function ReadPost() {
-    const navigate = useNavigate();
 
-    // const { isLoading, isError, data } = useQuery("readPost",getReadPost);
+    const { isLoading, isError, data } = useQuery("readPost",getReadPost);
 
-    // if (isLoading) {
+    if (isLoading) {
   
-    //     return <Spinner/>
-    //   }
+        return <Spinner/>
+      }
       
-    //   if (isError) {
-    //     return <p>오류가 발생하였습니다...!</p>;
-    //   }
+      if (isError) {
+        return <p>오류가 발생하였습니다...!</p>;
+      }
 
-    // const getReadData = data.data
+    const getReadData = data.data
 
     return (
         <StReadContainer>
             <Header />
             <StTitleContainer>
                 <StReadTitle>📙 읽었슴</StReadTitle>
-                {/* <StReadResult>{getReadData.length}개 읽었슴!</StReadResult> */}
+                <StReadResult>{getReadData.length}개 읽었슴!</StReadResult>
                 
             </StTitleContainer>
             <StCardContainer>
-            {/* {getReadData.map(()=>(
+            {getReadData.map((item)=>(
                 <SearchCard key={item.id} item={item}/>
-            ))} */}
+            ))}
 
 
             </StCardContainer>

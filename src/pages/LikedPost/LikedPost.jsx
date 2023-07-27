@@ -3,36 +3,37 @@ import { styled } from 'styled-components'
 import Header from '../../components/Header'
 import Guide from '../../components/Guide';
 import Footer from '../../components/Footer';
-import { useNavigate } from 'react-router-dom';
-// import SearchCard from '../../components/SearchCard'
+import { useQuery } from 'react-query';
+import SearchCard from '../../components/SearchCard'
+import { getLikedhPost } from '../../axios/api';
+import Spinner from '../../components/Spinner';
 
 function LikedPost() {
-    const navigate = useNavigate();
 
-    // const { isLoading, isError, data } = useQuery("likedPost", getLikedPost);
+    const { isLoading, isError, data } = useQuery("likedPost", getLikedhPost);
 
-    // if (isLoading) {
+    if (isLoading) {
   
-    //     return <Spinner/>
-    //   }
+        return <Spinner/>
+      }
       
-    //   if (isError) {
-    //     return <p>오류가 발생하였습니다...!</p>;
-    //   }
+      if (isError) {
+        return <p>오류가 발생하였습니다...!</p>;
+      }
 
-    // const getLikedData = data.data
+    const getLikedData = data.data
 
     return (
         <StLikedContainer>
             <Header />
             <StTitleContainer>
                 <StLikedTitle>🧡 좋았슴</StLikedTitle>
-                {/* <StLikedResult>{getLikedData.length}개 좋았슴!</StLikedResult> */}
+                <StLikedResult>{getLikedData.length}개 좋았슴!</StLikedResult>
             </StTitleContainer>
             <StCardContainer>
-            {/* {getLikedData.map(()=>(
+            {getLikedData.map((item)=>(
                 <SearchCard key={item.id} item={item}/>
-            ))} */}
+            ))}
             </StCardContainer>
             <Guide text={`오늘까지 588회 뉴스레터를 발행했고 557,579명이 구독했어요!`} isHover={true} to="/"/>
             <Footer />

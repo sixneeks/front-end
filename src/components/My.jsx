@@ -66,12 +66,16 @@ export default My;
 
 const Stall = styled.div`
   background-color: #eae7de;
-  padding-left: 8%;
-  padding-top: 4%;
   padding-bottom: 100px;
 `;
 
-const Stouter = styled.div``;
+const Stouter = styled.div`
+  max-width : 1360px;
+  width: 90%;
+  margin: 0 auto;
+  padding-top : 60px;
+`;
+
 const Sthistory = styled.div`
   font-size: 35px;
   font-weight: 400;
@@ -97,8 +101,8 @@ const Stprofile = styled(Link)`
   }
 `;
 const Stbuttons = styled.div`
-  margin-top: 60px;
-  width: 80vw;
+  width: 90%;
+  margin: 60px auto 0;
 
   @media (min-width: 1400px) {
     width: 1400px;
