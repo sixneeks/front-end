@@ -42,6 +42,7 @@ export default Guide;
 
 const StOutGuide = styled.div`
   background-color: #eae7de;
+  border-top: 1px solid #051619;
   border-bottom: 1px solid #051619;
   overflow: hidden;
 

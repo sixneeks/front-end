@@ -47,10 +47,10 @@ const My = () => {
         </Stouter>
 
         <Stbuttons>
-          <Stbutton1 to="/">
+          <Stbutton1 to="/ReadPost">
             📙 끝까지 읽었슴<Stnum>{readedCount}</Stnum>
           </Stbutton1>
-          <Stbutton2 to="/">
+          <Stbutton2 to="/LikedPost">
             🧡 좋았슴<Stnum>{likesCount}</Stnum>
           </Stbutton2>
           <Stbutton3 to="/">

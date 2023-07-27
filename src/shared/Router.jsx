@@ -10,7 +10,8 @@ import ProfileSetting from "../pages/ProfileSetting/ProfileSetting";
 import Search from "../pages/Search/Search";
 import { QueryClient, QueryClientProvider } from "react-query";
 import Result from "../pages/Result/Result";
-
+import LikedPost from "../pages/LikedPost/LikedPost";
+import ReadPost from "../pages/ReadPost/ReadPost";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,8 @@ const Router = () => {
                     <Route path="/profilesetting" element={<ProfileSetting />} />
                     <Route path="/search" element={<Search />} />
                     <Route path="/result/:id" element={<Result />} />
+                    <Route path="/likedpost" element={<LikedPost />} />
+                    <Route path="/readpost" element={<ReadPost />} />
 
                 </Routes>
             </BrowserRouter>
