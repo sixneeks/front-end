@@ -16,11 +16,12 @@ instance.interceptors.request.use(
     if (token) {
       config.headers.Authorization = `${token}`;
     }
-
+    console.log("요청 완료", config)
     return config;
   },
   function (error) {
     console.log("인터셉트 요청 오류!");
+    console.log("요청 에러", error)
     return Promise.reject(error);
   }
 );
@@ -28,11 +29,12 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   function (response) {
     console.log("인터넵트 응답 받았어요!");
-    console.log("response", response)
+    console.log("응답 완료", response)
     return response;
   },
   function (error) {
     console.log("인터셉트 응답 못받았어요...ㅠㅠ");
+    console.log("응답 에러", error)
     if(error.response.status === 400){
       const token = error.response.headers.authorization
       localStorage.setItem('token', token);
