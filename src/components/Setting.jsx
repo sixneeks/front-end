@@ -28,7 +28,7 @@ const Setting = () => {
     }
   });
 
-  const logout = () => {
+  const logoutUser = () => {
     logoutMutation.mutate()
   }
 
@@ -70,7 +70,7 @@ const Setting = () => {
           </Stbutton>
         </Stbuttons>
         <StContainer>
-        <StLogoutButton onClick={logout}>로그아웃</StLogoutButton>
+        <StLogoutButton onClick={logoutUser}>로그아웃</StLogoutButton>
         <StLogoutButton onClick={deleteUser}>계정 삭제하기</StLogoutButton>
         </StContainer>
       </Stall>
@@ -138,6 +138,7 @@ const StLogoutButton = styled.div`
   font-size: 15px;
   margin: 30px 50px 0px 0px;
   text-decoration: underline;
+  cursor: pointer;
 `
 
 const StContainer = styled.div`
