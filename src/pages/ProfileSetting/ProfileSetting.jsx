@@ -5,6 +5,9 @@ import Footer from "../../components/Footer";
 import Setting from "../../components/Setting";
 
 function ProfileSetting() {
+
+   
+
   const scrollToTop = () => {
     window.scrollTo({
     top: 0,

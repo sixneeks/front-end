@@ -118,6 +118,13 @@ const getMyPage = async () => {
   return response.data;
 }
 
+// 프로필 설정 페이지 조회
+const getprofilesetting = async () => {
+  const response = await instance.get(`/api/members/profile/setting`);
+  console.log("프로필 설정 페이지 조회", response)
+  return response.data;
+}
+
 // 검색정보 조회
 const getSearchPost = async (search) => {
   const response = await instance.get(`/api/articles/search?keyword=${search}`);
@@ -140,4 +147,4 @@ const getLikedhPost = async () => {
 }
 
 
-export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts, getDetailPosts, like, read, getMyPage, getSearchPost, getReadPost, getLikedhPost}
+export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts, getDetailPosts, like, read, getMyPage, getSearchPost, getReadPost, getLikedhPost, getprofilesetting}
