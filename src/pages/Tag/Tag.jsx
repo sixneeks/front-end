@@ -17,9 +17,12 @@ function Tag() {
   const [plusTagpage, setPluspage] = useState(1)
   const scrollPositionRef = useRef(0);
   const param = useParams();
+  console.log("param", param)
 
 const { isLoading, isError, data } = useQuery(["post", plusTagpage], () => getTagPosts(param.id , plusTagpage));
 
+
+console.log('data', data)
 useEffect(() => {
   // 데이터가 로드된 후 저장한 스크롤 위치로 스크롤합니다.
   if (data) {
