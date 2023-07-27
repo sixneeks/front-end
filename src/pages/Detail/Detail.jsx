@@ -10,6 +10,8 @@ import { useMutation, useQuery } from 'react-query'
 import { useParams } from 'react-router-dom'
 import { getDetailPosts, read } from '../../axios/api'
 import Spinner from "../../components/Spinner";
+import UnderBanner from "../../components/UnderBanner"
+import Guide from '../../components/Guide'
 
 function Detail() {
   const { id } = useParams();
@@ -72,6 +74,8 @@ function Detail() {
       <Wrap>
         <Header />
         <CardInner data={detailData} />
+        <UnderBanner/>
+        <Guide text={`오늘까지 588회 뉴스레터를 발행했고 557,579명이 구독했어요!`} isHover={true} to="/"/>
         <Footer />
         <ThemeToggle />
       </Wrap>
