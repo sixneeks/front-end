@@ -1,12 +1,15 @@
 import React from 'react'
 import { styled } from 'styled-components'
 import logo from "../img/logo.png";
+import { useNavigate } from "react-router-dom";
+
 function Footer() {
+  const navigate = useNavigate();
   return (
     <StOutFooter>
       <StInFooter>
       <StOutLogo>
-      <Stlogo src={logo} alt="로고" />
+      <Stlogo src={logo} alt="로고" onClick={() => {navigate("/");}} />
       </StOutLogo>
       <StOutButtonSet>
       <StButtonSet>
@@ -40,26 +43,27 @@ function Footer() {
 export default Footer
 
 const StOutFooter = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #eae7de;
-    border-bottom: 1px solid #051619;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eae7de;
+  border-bottom: 1px solid #051619;
 `
 const StInFooter = styled.div`
-    box-sizing: border-box;
-    max-width: 1360px;
-    width : 90%;
-    margin: 60px auto;
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    flex-direction: row;
-    flex-wrap: wrap;
+  box-sizing: border-box;
+  max-width: 1360px;
+  width : 90%;
+  margin: 60px auto;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
 `
 
 const Stlogo = styled.img`
   width: 200px;
+  cursor: pointer;
 `
 
 const StOutLogo = styled.div`
@@ -85,18 +89,18 @@ const StButtonSet = styled.div`
 `
 
 const StButton = styled.div`
-margin-bottom:15px;
-&:hover {
-color: #ff6b00;
+  margin-bottom:15px;
+  cursor: pointer;
+  &:hover {
+  color: #ff6b00;
 }
 `
 const StAddress = styled.div`
-    margin-top:28px;
-    width: 100%;
-    font-size: 14px;
+  margin-top:28px;
+  width: 100%;
+  font-size: 14px;
 `
 const StCopyRight = styled.div`
-    margin: 14px 0px 25px;
-    font-size: 12px;
-
+  margin: 14px 0px 25px;
+  font-size: 12px;
 `

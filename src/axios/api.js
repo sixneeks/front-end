@@ -28,7 +28,7 @@ instance.interceptors.request.use(
 instance.interceptors.response.use(
   function (response) {
     console.log("인터넵트 응답 받았어요!");
-    console.log("responseresponse", response)
+    console.log("response", response)
     return response;
   },
   function (error) {
@@ -125,5 +125,19 @@ const getSearchPost = async (search) => {
   return response.data;
 }
 
+// 읽은 기사 조회
+const getReadPost = async () => {
+  const response = await instance.get(`/api/members/profile/readedList`);
+  console.log("읽은 기사 조회", response)
+  return response.data;
+}
 
-export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts, getDetailPosts, like, read, getMyPage, getSearchPost}
+// 좋아요 누른 기사 조회
+const getLikedhPost = async () => {
+  const response = await instance.get(`/api/members/profile/likedList`);
+  // console.log("좋아요 누른 기사 조회", response)
+  return response.data;
+}
+
+
+export{ addUsers, deleteUsers, login, logout, getTotalPosts, getTagPosts, getDetailPosts, like, read, getMyPage, getSearchPost, getReadPost, getLikedhPost}

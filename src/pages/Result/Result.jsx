@@ -25,30 +25,22 @@ function Result() {
         return <p>오류가 발생하였습니다...!</p>;
       }
 
-    console.log("searchPost", data)
     const getSearchData = data.data
-    const goMain = () => {
-        navigate('/')
-    }
+
   return (
     <StResultContainer>
         <Header />
         <StTitleContainer>
-        <StSearchTitle><StSearch>{param.id}</StSearch>의 검색결과예요.</StSearchTitle>
-        <StSearchResult>🦔고슴이: {getSearchData.length}개 찾았슴!</StSearchResult>
-        <StButton>최신순</StButton>
+            <StSearchTitle><StSearch>{param.id}</StSearch>의 검색결과예요.</StSearchTitle>
+            <StSearchResult>🦔고슴이: {getSearchData.length}개 찾았슴!</StSearchResult>
+            <StButton>최신순</StButton>
         </StTitleContainer>
         <StCardContainer>
         {getSearchData.map((item)=>(
             <SearchCard key={item.id} item={item}/>
         ))}
-
-        
-
-
-
         </StCardContainer>
-        <Guide text={`오늘까지 588회 뉴스레터를 발행했고 557,579명이 구독했어요!`} isHover={true} onClick={goMain}/>
+        <Guide text={`오늘까지 588회 뉴스레터를 발행했고 557,579명이 구독했어요!`} isHover={true} to="/"/>
         <Footer />
     </StResultContainer>
   )

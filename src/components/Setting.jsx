@@ -1,41 +1,78 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useMutation } from "react-query";
+import { logOut } from '../redux/modules/loginSlice';
+import { deleteUsers, logout } from '../axios/api';
+
 
 const Setting = () => {
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const logoutMutation = useMutation(logout, {
+    onSuccess: () => {
+      console.log("로그아웃 성공");
+      dispatch(logOut())
+      navigate('/')
+    }
+  });
+
+  const deleteUserMutation = useMutation(deleteUsers, {
+    onSuccess: () => {
+      console.log("탈퇴되었습니다.");
+      dispatch(logOut())
+      navigate('/')
+    }
+  });
+
+  const logout = () => {
+    logoutMutation.mutate()
+  }
+
+  const deleteUser = () => {
+    deleteUserMutation.mutate()
+  }
+
   return (
     <>
       <Stall>
         <Stouter>
           <Sthistory>
-            <span>ㅇㅇㅇ</span> 뉴니커,
+            <span>고슴슴</span> 뉴니커,
           </Sthistory>
-          <Sthistory2>어떤 사람인지 더 알고 싶어요!</Sthistory2>
+          <Sthistory>어떤 사람인지 더 알고 싶어요!</Sthistory>
           <Stmail>뉴니커 정보</Stmail>
         </Stouter>
 
         <Stbuttons>
-          <Stbutton1 to="/">
+          <Stbutton to="/">
             <Stbox>닉네임</Stbox>
-            <Stnum1>고슴슴</Stnum1>
-          </Stbutton1>
-          <Stbutton2 to="/">
+            <Stnum>고슴슴</Stnum>
+          </Stbutton>
+          <Stbutton to="/">
             <Stbox>출생년도</Stbox>
-            <Stnum2>23년</Stnum2>
-          </Stbutton2>
-          <Stbutton3 to="/">
+            <Stnum>23년</Stnum>
+          </Stbutton>
+          <Stbutton to="/">
             <Stbox>성별</Stbox>
-            <Stnum3>고슴</Stnum3>
-          </Stbutton3>
-          <Stbutton4 to="/">
+            <Stnum>고슴</Stnum>
+          </Stbutton>
+          <Stbutton to="/">
             <Stbox>배송지</Stbox>
-            <Stnum4>어디게?</Stnum4>
-          </Stbutton4>
-          <Stbutton5 to="/">
+            <Stnum>어디게?</Stnum>
+          </Stbutton>
+          <Stbutton to="/">
             <Stbox>이모지</Stbox>
-            <Stnum5>🦔</Stnum5>
-          </Stbutton5>
+            <Stnum>🦔</Stnum>
+          </Stbutton>
         </Stbuttons>
+        <StContainer>
+        <StLogoutButton onClick={logout}>로그아웃</StLogoutButton>
+        <StLogoutButton onClick={deleteUser}>계정 삭제하기</StLogoutButton>
+        </StContainer>
       </Stall>
     </>
   );
@@ -50,15 +87,14 @@ const Stall = styled.div`
   padding-bottom: 100px;
 `;
 
-const Stouter = styled.div``;
+const Stouter = styled.div`
+
+`;
 const Sthistory = styled.div`
   font-size: 30px;
   font-weight: 400;
 `;
-const Sthistory2 = styled.div`
-  font-size: 30px;
-  font-weight: 400;
-`;
+
 const Stmail = styled.div`
   font-size: 15px;
   margin-top: 30px;
@@ -75,94 +111,36 @@ const Stbuttons = styled.div`
   }
 `;
 const Stbox = styled.div`
-  width: 50px;
+  width: 70px;
 
 `;
 
-const Stbutton1 = styled(Link)`
+const Stbutton = styled(Link)`
   display: flex;
   align-items: center;
+  border: 1px solid #051619;
+  margin-top: -1px;
+  height: 60px;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 2%;
+  justify-content: space-between;
+`;
 
-  border: 1px solid #051619;
-  margin-top: -1px;
-  height: 60px;
+const Stnum = styled.div`
+  display: flex;
   font-size: 14px;
-  font-weight: 600;
-  padding-left: 2%;
+  font-weight: 400;
+  margin-right: 80%;
+`;
 
-  justify-content: space-between;
-`;
-const Stbutton2 = styled(Link)`
+const StLogoutButton = styled.div`
+  font-size: 15px;
+  margin: 30px 50px 0px 0px;
+  text-decoration: underline;
+`
+
+const StContainer = styled.div`
   display: flex;
-  align-items: center;
-  border: 1px solid #051619;
-  margin-top: -1px;
-  height: 60px;
-  font-size: 14px;
-  font-weight: 600;
-  padding-left: 2%;
-  justify-content: space-between;
-`;
-const Stbutton3 = styled(Link)`
-  display: flex;
-  align-items: center;
-  border: 1px solid #051619;
-  margin-top: -1px;
-  height: 60px;
-  font-size: 14px;
-  font-weight: 600;
-  padding-left: 2%;
-  justify-content: space-between;
-`;
-const Stbutton4 = styled(Link)`
-  display: flex;
-  align-items: center;
-  border: 1px solid #051619;
-  margin-top: -1px;
-  height: 60px;
-  font-size: 14px;
-  font-weight: 600;
-  padding-left: 2%;
-  justify-content: space-between;
-`;
-const Stbutton5 = styled(Link)`
-  display: flex;
-  align-items: center;
-  border: 1px solid #051619;
-  margin-top: -1px;
-  height: 60px;
-  font-size: 14px;
-  font-weight: 600;
-  padding-left: 2%;
-  justify-content: space-between;
-`;
-const Stnum1 = styled.div`
-  display: flex;
-  font-size: 14px;
-  font-weight: 400;
-  margin-right: 80%;
-`;
-const Stnum2 = styled.div`
-  display: flex;
-  font-size: 14px;
-  font-weight: 400;
-  margin-right: 80%;
-`;
-const Stnum3 = styled.div`
-  display: flex;
-  font-size: 14px;
-  font-weight: 400;
-  margin-right: 80%;
-`;
-const Stnum4 = styled.div`
-  display: flex;
-  font-size: 14px;
-  font-weight: 400;
-  margin-right: 80%;
-`;
-const Stnum5 = styled.div`
-  display: flex;
-  font-size: 14px;
-  font-weight: 400;
-  margin-right: 80%;
-`;
+  flex-direction: row;
+`
